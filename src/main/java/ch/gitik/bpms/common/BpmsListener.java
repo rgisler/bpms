@@ -20,5 +20,11 @@ package ch.gitik.bpms.common;
  * @author Roland Gisler
  */
 public interface BpmsListener {
-   public void bpmsPerformed(BpmsEvent event);
+
+   /**
+    * Listener für BPMS-Events.
+    * @param event
+    *           BPMS-Event.
+    */
+   void bpmsPerformed(BpmsEvent event);
 }

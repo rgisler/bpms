@@ -32,7 +32,7 @@ public class BpmsEvent extends EventObject {
     * @param state
     *           State.
     */
-   public BpmsEvent(Object object, BpmsState state) {
+   public BpmsEvent(final Object object, final BpmsState state) {
       super(object);
       this.state = state;
    }
@@ -41,7 +41,7 @@ public class BpmsEvent extends EventObject {
     * Liefert den State zurueck.
     * @return State.
     */
-   public BpmsState getState() {
+   public final BpmsState getState() {
       return state;
    }
 }
