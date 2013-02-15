@@ -22,7 +22,7 @@ package ch.gitik.bpms.common;
 public abstract class AbstractConfig {
 
    /**
-    * Validiert die Konfiguration
+    * Validiert die Konfiguration.
     * @return boolean Status
     * @throws ConfigException
     *            wenn Konfiguration ungueltig.

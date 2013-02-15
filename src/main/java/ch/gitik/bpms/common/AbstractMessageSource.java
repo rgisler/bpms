@@ -19,8 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Basisklasse fuer eine Message-Quelle. Registriert und verwaltet
- * MessageListener.
+ * Basisklasse fuer eine Message-Quelle. Registriert und verwaltet MessageListener.
  * @author Roland Gisler
  */
 public abstract class AbstractMessageSource {
@@ -32,7 +31,7 @@ public abstract class AbstractMessageSource {
     * @param listener
     *           MessageListener.
     */
-   public void addMessageListener(MessageListener listener) {
+   public final void addMessageListener(final MessageListener listener) {
       this.listerners.add(listener);
    }
 
@@ -41,8 +40,8 @@ public abstract class AbstractMessageSource {
     * @param msg
     *           Message.
     */
-   protected void fireMessageReceived(Message msg) {
-      for (MessageListener listener : this.listerners) {
+   protected final void fireMessageReceived(final Message msg) {
+      for (final MessageListener listener : this.listerners) {
          listener.messageReceived(msg);
       }
    }
@@ -52,7 +51,7 @@ public abstract class AbstractMessageSource {
     * @param listener
     *           MessageListener.
     */
-   public void removeMessageListener(MessageListener listener) {
+   public final void removeMessageListener(final MessageListener listener) {
       this.listerners.remove(listener);
    }
 }
