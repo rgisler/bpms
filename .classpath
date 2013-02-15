@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="lib" path="lib/dev/checkstyle/checkstyle-5.6-all.jar"/>
+	<classpathentry kind="lib" path="lib/dev/classycle/classycle.jar"/>
+	<classpathentry kind="lib" path="lib/dev/jacoco/jacocoant.jar"/>
+	<classpathentry kind="lib" path="lib/dev/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="lib/dev/pmd/asm-3.2.jar"/>
+	<classpathentry kind="lib" path="lib/dev/pmd/jaxen-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/dev/pmd/pmd-5.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/dev/qsreporter/qsreporter-1.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/log4j.jar"/>
+	<classpathentry kind="lib" path="lib/smack.jar"/>
+	<classpathentry kind="lib" path="lib/smackx.jar"/>
+	<classpathentry kind="lib" path="lib/xmlrpc-client.jar"/>
+	<classpathentry kind="lib" path="lib/xmlrpc-common.jar"/>
+	<classpathentry kind="lib" path="lib/xmlrpc-server.jar"/>
+	<classpathentry kind="lib" path="lib/jdom.jar"/>
+	<classpathentry kind="lib" path="lib/xstream.jar"/>
+	<classpathentry kind="lib" path="lib/ant.jar"/>
+	<classpathentry kind="lib" path="lib/cruisecontrol.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="build/eclipse"/>
+</classpath>
