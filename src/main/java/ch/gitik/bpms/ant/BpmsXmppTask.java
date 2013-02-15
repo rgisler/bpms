@@ -165,7 +165,7 @@ public class BpmsXmppTask extends AbstractBpmsTask {
 
    /**
     * Setzt den Receiver.
-    * @param string
+    * @param name
     *           Receiver.
     */
    public final void setReceiver(final String name) {
@@ -175,7 +175,7 @@ public class BpmsXmppTask extends AbstractBpmsTask {
 
    /**
     * Setzt die Conference.
-    * @param string
+    * @param name
     *           Conference.
     */
    public final void setConference(final String name) {
