@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id: XMPPSender.java 274 2009-07-19 11:11:19Z rog $
  */
 package ch.gitik.bpms.xmlrpc;
 
@@ -31,10 +29,7 @@ import ch.gitik.bpms.common.XMLConverter;
  * Wrapper-Klasse fuer Jabber Instant Messaging. Diese Klasse bietet
  * vereinfachte Funktionen an um mit einem Jabber-Server zu kommunizieren. Sie
  * verwendet die Client API 'smack'.
- *
  * @author Roland Gisler
- * @version $Revision: 274 $ ($Date: 2009-07-17 15:57:06 +0200 (Fr, 17 Jul 2009)
- *          $ / $Author: rog $)
  */
 public class XmlRpcSender implements MessageSender {
 
@@ -44,7 +39,6 @@ public class XmlRpcSender implements MessageSender {
 
    /**
     * Konstruktor.
-    *
     * @param config
     *           Konfiguration.
     */
@@ -56,7 +50,6 @@ public class XmlRpcSender implements MessageSender {
     * Sendet eine Message. Abhaengig ob ein Listener definiert ist wird die
     * Message entweder nur an diesen, oder aber an alle aktiven Listener
     * verschickt.
-    *
     * @param receiver
     *           Empfaenger.
     * @param message
@@ -88,14 +81,14 @@ public class XmlRpcSender implements MessageSender {
 
    /**
     * Liefert eine Connection zum XML-RPC Server.
-    *
     * @return ClientFactory.
     * @throws MalformedURLException
     */
    protected ClientFactory openConnection() throws MalformedURLException {
       if (this.factory == null) {
          XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
-         config.setServerURL(new URL("http://" + this.config.getHost() + ":" + this.config.getPort() + "/xmlrpc"));
+         config.setServerURL(new URL("http://" + this.config.getHost() + ":" + this.config.getPort()
+               + "/xmlrpc"));
          config.setEnabledForExtensions(true);
          XmlRpcClient client = new XmlRpcClient();
          client.setConfig(config);

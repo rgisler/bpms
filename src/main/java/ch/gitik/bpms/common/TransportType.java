@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,22 +12,20 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id: TransportType.java 289 2009-07-20 13:53:14Z rog $
  */
 package ch.gitik.bpms.common;
 
 /**
  * Enumeration mit moeglichen TransportTypen.
  * @author Roland Gisler
- * @version $Revision: 289 $
  */
 public enum TransportType {
    MULTICAST, XMPP, XMLRPC;
 
    /**
     * Liefert eine Beschreibung des Transporttyps.
-    * @param type TransportType.
+    * @param type
+    *           TransportType.
     * @return String Beschreibung.
     */
    public String getFullType(TransportType type) {

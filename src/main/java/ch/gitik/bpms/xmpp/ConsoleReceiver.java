@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id: ConsoleReceiver.java 281 2009-07-20 09:43:36Z rog $
  */
 package ch.gitik.bpms.xmpp;
 
@@ -51,7 +49,8 @@ public class ConsoleReceiver implements MessageListener {
          UnknownHostException {
       System.out.println("Starting XMPP-ConsoleReceiver...");
 
-      XMPPConfig config = new XMPPConfig(server, port, user, password, "bpmstest@conference.ubuntuserver", true);
+      XMPPConfig config = new XMPPConfig(server, port, user, password, "bpmstest@conference.ubuntuserver",
+            true);
 
       xmpp = XMPPFactory.getXMPPHandler(config);
       xmpp.addMessageListener(this);
@@ -69,10 +68,8 @@ public class ConsoleReceiver implements MessageListener {
    }
 
    /**
-    * Run a simple xmpp client.
-    * Receive text messages Start: java xmppClient
+    * Run a simple xmpp client. Receive text messages Start: java xmppClient
     * xmppAddress PortNumber
-    *
     * @throws IOException
     * @throws UnknownHostException
     */

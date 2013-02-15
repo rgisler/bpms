@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,22 +12,20 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * $Id: MessageType.java 214 2008-07-18 17:15:55Z rog $
  */
 package ch.gitik.bpms.common;
 
 /**
  * Enumeration mit moeglichen MessageTypes.
  * @author Roland Gisler
- * @version $Revision: 214 $
  */
 public enum MessageType {
    LOG4J, CC, ANT, RAW;
 
    /**
     * Liefert eine Beschreibung des MessageType.
-    * @param type MessageType
+    * @param type
+    *           MessageType
     * @return String Beschreibung.
     */
    public String getFullType(MessageType type) {

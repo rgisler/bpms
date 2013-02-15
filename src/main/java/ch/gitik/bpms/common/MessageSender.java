@@ -1,5 +1,5 @@
 /*
- * Copyright 2007 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,21 +12,16 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id: AbstractBpmsTask.java 38 2007-02-12 12:50:46Z rog $
  */
 package ch.gitik.bpms.common;
 
 /**
- *
  * @author Roland Gisler
- * @version $Revision$
  */
 public interface MessageSender {
 
    /**
     * Sendet eine Message.
-    *
     * @param receiver
     *           Empfaenger. Kann null sein.
     * @param message

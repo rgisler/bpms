@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id: MulticastSenderFactoryTest.java 281 2009-07-20 09:43:36Z rog $
  */
 package ch.gitik.bpms.multicast;
 
@@ -25,9 +23,7 @@ import org.junit.Test;
 import ch.gitik.bpms.common.ConfigException;
 
 /**
- *
  * @author Roland Gisler
- * @version $Revision: 281 $
  */
 public class MulticastSenderFactoryTest {
 
@@ -44,10 +40,14 @@ public class MulticastSenderFactoryTest {
    @Test
    public void testGetSender() {
       try {
-         MulticastSender sender1 = MulticastSenderFactory.getSender(new MulticastConfig("1.1.1.1",PORT_1000));
-         MulticastSender sender2 = MulticastSenderFactory.getSender(new MulticastConfig("2.2.2.2",PORT_1000));
-         MulticastSender sender3 = MulticastSenderFactory.getSender(new MulticastConfig("1.1.1.1",PORT_1000));
-         MulticastSender sender4 = MulticastSenderFactory.getSender(new MulticastConfig("2.2.2.2",PORT_1000));
+         MulticastSender sender1 = MulticastSenderFactory
+               .getSender(new MulticastConfig("1.1.1.1", PORT_1000));
+         MulticastSender sender2 = MulticastSenderFactory
+               .getSender(new MulticastConfig("2.2.2.2", PORT_1000));
+         MulticastSender sender3 = MulticastSenderFactory
+               .getSender(new MulticastConfig("1.1.1.1", PORT_1000));
+         MulticastSender sender4 = MulticastSenderFactory
+               .getSender(new MulticastConfig("2.2.2.2", PORT_1000));
          Assert.assertNotNull(sender1);
          Assert.assertNotNull(sender2);
          Assert.assertNotNull(sender3);

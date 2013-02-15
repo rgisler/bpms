@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,18 +12,14 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * $Id: MessageHandler.java 214 2008-07-18 17:15:55Z rog $
  */
 package ch.gitik.bpms.common;
 
-
 /**
- * Interface fuer MessageHandler.
- * Schnittstelle um Kommunikationsdienst zu aktivieren, deaktiveren und Statusabfrage.
- * Handling der MessageListener-Schnittstelle.
+ * Interface fuer MessageHandler. Schnittstelle um Kommunikationsdienst zu
+ * aktivieren, deaktiveren und Statusabfrage. Handling der
+ * MessageListener-Schnittstelle.
  * @author Roland Gisler
- * @version $Revision: 214 $
  */
 public interface MessageHandler {
 
@@ -35,7 +31,8 @@ public interface MessageHandler {
 
    /**
     * Aktiviert den Handler und den Transport.
-    * @throws ConfigException Exception bei ungueltiger Konfiguration.
+    * @throws ConfigException
+    *            Exception bei ungueltiger Konfiguration.
     */
    public void activate() throws ConfigException;
 
@@ -43,16 +40,18 @@ public interface MessageHandler {
     * Deaktiviert den MessageHandler.
     */
    public void deactivate();
-   
+
    /**
     * Registriert einen MessageListener.
-    * @param listener MessageListener.
+    * @param listener
+    *           MessageListener.
     */
    public void addMessageListener(MessageListener listener);
 
    /**
     * Deregistriert einen MessageListener.
-    * @param listener MessageListener.
+    * @param listener
+    *           MessageListener.
     */
    public void removeMessageListener(MessageListener listener);
 }

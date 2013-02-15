@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id:BpmsXmppTaskTest.java 39 2007-02-12 17:48:01Z rog $
  */
 package ch.gitik.bpms.ant;
 
@@ -24,7 +22,6 @@ import org.junit.Test;
 
 /**
  * @author Roland Gisler
- * @version $Revision: 290 $
  */
 public class BpmsXmppTaskTest {
 
@@ -46,8 +43,8 @@ public class BpmsXmppTaskTest {
       this.task.setUser("builder");
       this.task.setPassword("builder");
       this.task.setReceiver("listener");
-      //this.task.execute();
-      Assert.assertEquals("saturn",this.task.getServer());
+      // this.task.execute();
+      Assert.assertEquals("saturn", this.task.getServer());
       Assert.assertEquals("builder", this.task.getUser());
       Assert.assertEquals("listener", this.task.getReceiver());
    }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id: XMPPConfig.java 264 2009-07-17 13:57:06Z rog $
  */
 package ch.gitik.bpms.xmpp;
 
@@ -21,24 +19,32 @@ import ch.gitik.bpms.common.AbstractConfig;
 import ch.gitik.bpms.common.ConfigException;
 
 /**
- *
  * @author Roland Gisler
- * @version $Revision: 264 $
  */
 public class XMPPConfig extends AbstractConfig {
 
    public static final String DEFAULT_HOST = "localhost";
+
    public static final int DEFAULT_PORT = 5222;
+
    public static final String DEFAULT_USER = "user";
+
    public static final String DEFAULT_PASSWORD = "password";
+
    public static final String DEFAULT_RECEIVER = "bpmsreceiver";
+
    public static final boolean IS_CONFERENCE = false;
 
    private String server = DEFAULT_HOST;
+
    private int port = DEFAULT_PORT;
+
    private String user = DEFAULT_USER;
+
    private String password = DEFAULT_PASSWORD;
+
    private String receiver = DEFAULT_RECEIVER;
+
    private boolean conference = IS_CONFERENCE;
 
    /**
@@ -59,7 +65,6 @@ public class XMPPConfig extends AbstractConfig {
    }
 
    /**
-    *
     * @return Passwort.
     */
    public String getPassword() {
@@ -67,7 +72,6 @@ public class XMPPConfig extends AbstractConfig {
    }
 
    /**
-    *
     * @param password
     */
    public void setPassword(String password) {
@@ -75,7 +79,6 @@ public class XMPPConfig extends AbstractConfig {
    }
 
    /**
-    *
     * @return Port.
     */
    public int getPort() {
@@ -83,7 +86,6 @@ public class XMPPConfig extends AbstractConfig {
    }
 
    /**
-    *
     * @param port
     */
    public void setPort(int port) {
@@ -91,7 +93,6 @@ public class XMPPConfig extends AbstractConfig {
    }
 
    /**
-    *
     * @return Server.
     */
    public String getServer() {
@@ -99,7 +100,6 @@ public class XMPPConfig extends AbstractConfig {
    }
 
    /**
-    *
     * @param server
     */
    public void setServer(String server) {
@@ -107,7 +107,6 @@ public class XMPPConfig extends AbstractConfig {
    }
 
    /**
-    *
     * @return Username.
     */
    public String getUser() {
@@ -115,7 +114,6 @@ public class XMPPConfig extends AbstractConfig {
    }
 
    /**
-    *
     * @param user
     */
    public void setUser(String user) {

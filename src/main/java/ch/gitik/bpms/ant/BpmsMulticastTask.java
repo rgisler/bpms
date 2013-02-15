@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * $Id: BpmsMulticastTask.java 214 2008-07-18 17:15:55Z rog $
  */
 package ch.gitik.bpms.ant;
 
@@ -33,15 +31,13 @@ import ch.gitik.bpms.multicast.MulticastSenderFactory;
  * ein build.xml eingebunden werden und versendet dann Messages an interessierte
  * Benutzer ueber das Multicast Protokoll.
  * @author Roland Gisler
- * @version $Revision: 214 $ ($Date: 2008-07-18 19:15:55 +0200 (Fr, 18 Jul 2008)
- *          $ / $Author: rog $)
  */
 public class BpmsMulticastTask extends AbstractBpmsTask {
 
    /** Servername. */
    private String multicastip = null;
 
-   /** Serverport */
+   /** Serverport. */
    private int port = 0;
 
    /** XMPP Configuration. */

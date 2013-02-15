@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id: BpmsXmppTask.java 279 2009-07-20 09:04:10Z rog $
  */
 package ch.gitik.bpms.ant;
 
@@ -30,8 +28,6 @@ import ch.gitik.bpms.xmpp.XMPPSenderFactory;
  * ein build.xml eingebunden werden und versendet dann Messages an interessierte
  * Benutzer ueber einen XMPP (Jabber) Server.
  * @author Roland Gisler
- * @version $Revision: 279 $ ($Date: 2009-07-19 13:52:55 +0200 (So, 19 Jul 2009)
- *          $ / $Author: rog $)
  */
 public class BpmsXmppTask extends AbstractBpmsTask {
 

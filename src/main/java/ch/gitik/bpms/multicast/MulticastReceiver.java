@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * $Id: MulticastReceiver.java 214 2008-07-18 17:15:55Z rog $
  */
 package ch.gitik.bpms.multicast;
 
@@ -31,16 +29,14 @@ import ch.gitik.bpms.common.MessageListener;
 import ch.gitik.bpms.common.XMLConverter;
 
 /**
- * 
  * @author Roland Gisler
- * @version $Revision: 214 $
  */
 public class MulticastReceiver implements MessageHandler, Runnable {
-   
+
    private boolean active = false;
-   
+
    private MulticastConfig config;
-   
+
    private MulticastSocket socket;
 
    private byte buffer[] = new byte[8192];
@@ -51,7 +47,8 @@ public class MulticastReceiver implements MessageHandler, Runnable {
 
    /**
     * Konstruktor.
-    * @param config Konfiguration.
+    * @param config
+    *           Konfiguration.
     */
    public MulticastReceiver(MulticastConfig config) {
       this.config = config;
@@ -77,7 +74,7 @@ public class MulticastReceiver implements MessageHandler, Runnable {
    /**
     * @see ch.gitik.bpms.common.MessageHandler#deactivate()
     */
-   public void deactivate()  {
+   public void deactivate() {
       this.active = false;
       try {
          this.socket.leaveGroup(InetAddress.getByName(this.config.getIp()));

@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * $Id: ConsoleReceiver.java 214 2008-07-18 17:15:55Z rog $
  */
 package ch.gitik.bpms.multicast;
 
@@ -38,7 +36,6 @@ public class ConsoleReceiver implements MessageListener {
 
    /**
     * Konstruktor.
-    * 
     * @throws IOException
     *            If an I/O exception occurs while creating the MulticastSocket
     * @throws UnkownHostException
@@ -50,7 +47,6 @@ public class ConsoleReceiver implements MessageListener {
 
    /**
     * Konstruktor.
-    * 
     * @param ip
     *           Multicast address
     * @param port
@@ -83,9 +79,8 @@ public class ConsoleReceiver implements MessageListener {
    }
 
    /**
-    * Run a simple multicast client to recive text messages Start: 
-    * java [MulticastAddress PortNumber]
-    * 
+    * Run a simple multicast client to recive text messages Start: java
+    * [MulticastAddress PortNumber]
     * @throws IOException
     * @throws UnknownHostException
     */

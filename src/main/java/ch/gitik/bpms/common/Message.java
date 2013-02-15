@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id: Message.java 285 2009-07-20 11:15:50Z rog $
  */
 package ch.gitik.bpms.common;
 
@@ -28,9 +26,7 @@ import java.util.Date;
  * Message. Sie wird als XML serialisiert zwischen den Rechner uebertragen.
  * Timestamp und Host koennen nur vom Ursprung gesetzt werden und sind
  * Read-Only.
- *
  * @author Roland Gisler
- * @version $Revision: 285 $
  */
 public class Message implements Serializable {
 
@@ -68,7 +64,6 @@ public class Message implements Serializable {
 
    /**
     * Liefert den Messagetext zurueck.
-    *
     * @return String
     */
    public String getText() {
@@ -77,7 +72,6 @@ public class Message implements Serializable {
 
    /**
     * Setzt den Messagetext.
-    *
     * @param text
     *           String
     */
@@ -87,7 +81,6 @@ public class Message implements Serializable {
 
    /**
     * Liefert den Projektnamen zurueck.
-    *
     * @return String
     */
    public String getProject() {
@@ -96,7 +89,6 @@ public class Message implements Serializable {
 
    /**
     * Setzt den Projektnamen.
-    *
     * @param project
     *           String
     */
@@ -106,7 +98,6 @@ public class Message implements Serializable {
 
    /**
     * Liefert den Timestamp zurueck.
-    *
     * @return long
     */
    public long getTimestamp() {
@@ -115,7 +106,6 @@ public class Message implements Serializable {
 
    /**
     * Liefert den Task zurueck.
-    *
     * @return String
     */
    public String getTask() {
@@ -124,7 +114,6 @@ public class Message implements Serializable {
 
    /**
     * Setzt den Task.
-    *
     * @param task
     *           String
     */
@@ -153,7 +142,6 @@ public class Message implements Serializable {
 
    /**
     * Liefert den Hostnamen zurueck.
-    *
     * @return String
     */
    public String getHost() {
@@ -162,7 +150,6 @@ public class Message implements Serializable {
 
    /**
     * Liefert die Gruppe zurueck.
-    *
     * @return String
     */
    public String getGroup() {
@@ -171,7 +158,6 @@ public class Message implements Serializable {
 
    /**
     * Setzt die Gruppe.
-    *
     * @param group
     *           String
     */
@@ -181,7 +167,6 @@ public class Message implements Serializable {
 
    /**
     * Liefert die URL zurueck.
-    *
     * @return String
     */
    public String getUrl() {
@@ -190,7 +175,6 @@ public class Message implements Serializable {
 
    /**
     * Setzt die URL.
-    *
     * @param url
     *           String
     */
@@ -200,7 +184,6 @@ public class Message implements Serializable {
 
    /**
     * Liefert den Messagetype zurueck.
-    *
     * @return MessageType
     */
    public MessageType getType() {
@@ -209,7 +192,6 @@ public class Message implements Serializable {
 
    /**
     * Setzt den MessageType.
-    *
     * @param type
     *           MessageType
     */
@@ -219,7 +201,6 @@ public class Message implements Serializable {
 
    /**
     * Testet auf ANT-Message.
-    *
     * @return boolean
     */
    public boolean isAnt() {
@@ -228,7 +209,6 @@ public class Message implements Serializable {
 
    /**
     * Testet auf CruiseControl-Message.
-    *
     * @return boolean
     */
    public boolean isCruiseControl() {
@@ -237,7 +217,6 @@ public class Message implements Serializable {
 
    /**
     * Testet auf Log4J-Message.
-    *
     * @return boolean
     */
    public boolean isLog4j() {
@@ -246,7 +225,6 @@ public class Message implements Serializable {
 
    /**
     * Testet auf RAW-Message.
-    *
     * @return boolean
     */
    public boolean isRaw() {

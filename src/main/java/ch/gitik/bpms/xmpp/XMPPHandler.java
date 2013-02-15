@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id: XMPPHandler.java 274 2009-07-19 11:11:19Z rog $
  */
 package ch.gitik.bpms.xmpp;
 
@@ -35,10 +33,7 @@ import ch.gitik.bpms.common.XMLConverter;
  * Wrapper-Klasse fuer Jabber Instant Messaging. Diese Klasse bietet
  * vereinfachte Funktionen an um mit einem Jabber-Server zu kommunizieren. Sie
  * verwendet die Client API 'smack'.
- *
  * @author Roland Gisler
- * @version $Revision: 274 $ ($Date: 2009-07-17 15:57:06 +0200 (Fr, 17 Jul 2009)
- *          $ / $Author: rog $)
  */
 public class XMPPHandler extends XMPPSender implements MessageHandler, PacketListener {
 
@@ -112,7 +107,6 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
    }
 
    /**
-    *
     * @param msg
     */
    private void fireMessageReceived(ch.gitik.bpms.common.Message msg) {
@@ -130,7 +124,6 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
 
    /**
     * Liefert den ConsoleReceiver.
-    *
     * @return String
     */
    public String getReceiver() {
@@ -139,7 +132,6 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
 
    /**
     * Setzt den ConsoleReceiver.
-    *
     * @param receiver
     */
    public void setReceiver(String receiver) {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id: MulticastFactoryTest.java 290 2009-07-20 14:50:42Z rog $
  */
 package ch.gitik.bpms.multicast;
 
@@ -25,9 +23,7 @@ import org.junit.Test;
 import ch.gitik.bpms.common.ConfigException;
 
 /**
- *
  * @author Roland Gisler
- * @version $Revision: 290 $
  */
 public class MulticastFactoryTest {
 
@@ -44,10 +40,14 @@ public class MulticastFactoryTest {
    @Test
    public void testGetHandler() {
       try {
-         MulticastHandler handler1 = MulticastFactory.getMulticastHandler(new MulticastConfig("1.1.1.1", PORT_1000));
-         MulticastHandler handler2 = MulticastFactory.getMulticastHandler(new MulticastConfig("2.2.2.2", PORT_1000));
-         MulticastHandler handler3 = MulticastFactory.getMulticastHandler(new MulticastConfig("1.1.1.1", PORT_1000));
-         MulticastHandler handler4 = MulticastFactory.getMulticastHandler(new MulticastConfig("2.2.2.2", PORT_1000));
+         MulticastHandler handler1 = MulticastFactory.getMulticastHandler(new MulticastConfig("1.1.1.1",
+               PORT_1000));
+         MulticastHandler handler2 = MulticastFactory.getMulticastHandler(new MulticastConfig("2.2.2.2",
+               PORT_1000));
+         MulticastHandler handler3 = MulticastFactory.getMulticastHandler(new MulticastConfig("1.1.1.1",
+               PORT_1000));
+         MulticastHandler handler4 = MulticastFactory.getMulticastHandler(new MulticastConfig("2.2.2.2",
+               PORT_1000));
          Assert.assertNotNull(handler1);
          Assert.assertNotNull(handler2);
          Assert.assertNotNull(handler3);

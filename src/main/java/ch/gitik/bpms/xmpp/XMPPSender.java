@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id: XMPPSender.java 290 2009-07-20 14:50:42Z rog $
  */
 package ch.gitik.bpms.xmpp;
 
@@ -36,10 +34,7 @@ import ch.gitik.bpms.common.XMLConverter;
  * Wrapper-Klasse fuer Jabber Instant Messaging. Diese Klasse bietet
  * vereinfachte Funktionen an um mit einem Jabber-Server zu kommunizieren. Sie
  * verwendet die Client API 'smack'.
- *
  * @author Roland Gisler
- * @version $Revision: 290 $ ($Date: 2009-07-17 15:57:06 +0200 (Fr, 17 Jul 2009)
- *          $ / $Author: rog $)
  */
 public class XMPPSender implements MessageListener {
 
@@ -49,7 +44,6 @@ public class XMPPSender implements MessageListener {
 
    /**
     * Konstruktor.
-    *
     * @param config
     *           Konfiguration.
     */
@@ -61,7 +55,6 @@ public class XMPPSender implements MessageListener {
     * Sendet eine Message an die/den Jabber-User. Abhaengig ob ein Listener
     * definiert ist wird die Message entweder nur an diesen, oder aber an alle
     * aktiven Listener verschickt.
-    *
     * @param receiver
     *           Empfaenger.
     * @param message
@@ -75,7 +68,6 @@ public class XMPPSender implements MessageListener {
     * Sendet eine Message an die/den Jabber-User. Abhaengig ob ein Listener
     * definiert ist wird die Message entweder nur an diesen, oder aber an alle
     * aktiven Listener verschickt.
-    *
     * @param receiver
     *           Empfaenger.
     * @param message
@@ -117,14 +109,13 @@ public class XMPPSender implements MessageListener {
 
    /**
     * Liefert eine Connection zum Jabber-Server.
-    *
     * @return Connection.
     * @throws XMPPException
     */
    protected XMPPConnection openConnection() throws XMPPException {
       if (this.connection == null) {
-         this.connection = new XMPPConnection(new ConnectionConfiguration(this.config.getServer(), this.config
-               .getPort()));
+         this.connection = new XMPPConnection(new ConnectionConfiguration(this.config.getServer(),
+               this.config.getPort()));
          this.connection.connect();
          this.connection.login(this.config.getUser(), this.config.getPassword());
       }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id: AbstractBpmsTask.java 281 2009-07-20 09:43:36Z rog $
  */
 package ch.gitik.bpms.ant;
 
@@ -31,8 +29,6 @@ import ch.gitik.bpms.common.MessageType;
  * ein build.xml eingebunden werden und versendet dann Messages an interessierte
  * Benutzer.
  * @author Roland Gisler
- * @version $Revision: 281 $ ($Date: 2009-07-20 11:43:36 +0200 (Mo, 20 Jul 2009)
- *          $ / $Author: rog $)
  */
 public abstract class AbstractBpmsTask extends Task implements BuildListener {
 
@@ -53,9 +49,9 @@ public abstract class AbstractBpmsTask extends Task implements BuildListener {
    /**
     * Check the input and throw a BuildException when it is null.
     * @throws BuildException
-    *            Buildfehler
+    *            Buildfehler.
     * @throws IllegalArgumentException
-    *            Fehlendes Attribut
+    *            Fehlendes Attribut.
     */
    public abstract void checkAttributes() throws BuildException;
 
@@ -63,7 +59,7 @@ public abstract class AbstractBpmsTask extends Task implements BuildListener {
     * Execute-Methode des Ant-Tasks. Diese Methode prueft ob alle Argemente
     * vorhanden sind und sendet dann eine BPMS-Message.
     * @throws BuildException
-    *            on wrong argument or IO error
+    *            on wrong argument or IO error.
     */
    public void execute() throws BuildException {
 
@@ -84,7 +80,6 @@ public abstract class AbstractBpmsTask extends Task implements BuildListener {
 
    /**
     * @see org.apache.tools.ant.BuildListener#buildStarted(org.apache.tools.ant.BuildEvent)
-    *      .
     */
    public void buildStarted(BuildEvent arg0) {
       Message msg = this.messageFactory.createMessage();
@@ -96,7 +91,6 @@ public abstract class AbstractBpmsTask extends Task implements BuildListener {
 
    /**
     * @see org.apache.tools.ant.BuildListener#buildFinished(org.apache.tools.ant.BuildEvent)
-    *      .
     */
    public void buildFinished(BuildEvent arg0) {
       String result = "BUILD ";
@@ -114,7 +108,6 @@ public abstract class AbstractBpmsTask extends Task implements BuildListener {
 
    /**
     * @see org.apache.tools.ant.BuildListener#targetStarted(org.apache.tools.ant.BuildEvent)
-    *      .
     */
    public void targetStarted(BuildEvent arg0) {
       this.lastTarget = arg0.getTarget().getName();
@@ -123,7 +116,6 @@ public abstract class AbstractBpmsTask extends Task implements BuildListener {
 
    /**
     * @see org.apache.tools.ant.BuildListener#targetFinished(org.apache.tools.ant.BuildEvent)
-    *      .
     */
    public void targetFinished(BuildEvent arg0) {
       if (!this.lastTarget.equals(arg0.getTarget().getName())) {

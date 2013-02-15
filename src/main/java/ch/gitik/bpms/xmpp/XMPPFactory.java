@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * $Id: XMPPFactory.java 214 2008-07-18 17:15:55Z rog $
  */
 package ch.gitik.bpms.xmpp;
 
@@ -21,10 +19,9 @@ import java.util.Hashtable;
 import java.util.Map;
 
 /**
- * Factory fuer XMPP-Handler.
- * Liefert einen auf User,Server und Port bezogenen XMPP-Handler zurueck.
+ * Factory fuer XMPP-Handler. Liefert einen auf User,Server und Port bezogenen
+ * XMPP-Handler zurueck.
  * @author Roland Gisler
- * @version $Revision: 214 $
  */
 public class XMPPFactory {
 
@@ -32,7 +29,8 @@ public class XMPPFactory {
 
    /**
     * Factorymethode fuer XMPP-Handler.
-    * @param config XMPPConfig.
+    * @param config
+    *           XMPPConfig.
     * @return XMPPHandler.
     */
    public static XMPPHandler getXMPPHandler(XMPPConfig config) {

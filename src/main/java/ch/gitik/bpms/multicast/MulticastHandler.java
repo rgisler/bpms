@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * $Id: MulticastHandler.java 214 2008-07-18 17:15:55Z rog $
  */
 package ch.gitik.bpms.multicast;
 
@@ -27,26 +25,25 @@ import ch.gitik.bpms.common.MessageHandler;
 import ch.gitik.bpms.common.MessageListener;
 
 /**
- * 
  * @author Roland Gisler
- * @version $Revision: 214 $
  */
 public class MulticastHandler extends AbstractMessageSource implements MessageHandler, MessageListener {
 
    private MulticastConfig config;
 
    private MulticastSender sender;
-   
+
    private MulticastReceiver receiver;
-   
+
    /**
     * Konstruktor.
-    * @param config Konfiguration.
+    * @param config
+    *           Konfiguration.
     */
    public MulticastHandler(MulticastConfig config) {
       this.config = config;
    }
-   
+
    /**
     * @see ch.gitik.bpms.common.MessageHandler#activate()
     */
@@ -77,8 +74,10 @@ public class MulticastHandler extends AbstractMessageSource implements MessageHa
 
    /**
     * Sendet eine Message.
-    * @param msg Message.
-    * @throws ConfigException Konfigurationsfehler.
+    * @param msg
+    *           Message.
+    * @throws ConfigException
+    *            Konfigurationsfehler.
     */
    public void send(Message msg) throws ConfigException {
       this.sender = MulticastSenderFactory.getSender(this.config);

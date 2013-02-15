@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * $Id: MulticastConfig.java 214 2008-07-18 17:15:55Z rog $
  */
 package ch.gitik.bpms.multicast;
 
@@ -21,16 +19,16 @@ import ch.gitik.bpms.common.AbstractConfig;
 import ch.gitik.bpms.common.ConfigException;
 
 /**
- * 
  * @author Roland Gisler
- * @version $Revision: 214 $
  */
 public class MulticastConfig extends AbstractConfig {
 
    public static final String DEFAULT_IP = "224.168.0.10";
+
    public static final int DEFAULT_PORT = 4000;
 
    private String ip = DEFAULT_IP;
+
    private int port = DEFAULT_PORT;
 
    public MulticastConfig() {

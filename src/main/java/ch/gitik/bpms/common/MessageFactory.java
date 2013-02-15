@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 Roland Gisler, GISLER iNFORMATiK, Switzerland.
+ * Copyright 2013 Roland Gisler, GISLER iNFORMATiK, Switzerland.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,34 +12,36 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * $Id: MessageFactory.java 214 2008-07-18 17:15:55Z rog $
  */
 package ch.gitik.bpms.common;
 
 /**
- * Einfache Message-Factory.
- * Diese Factory vereinfacht die Erzeugung von Messages mit identischen
- * Attributen.
+ * Einfache Message-Factory. Diese Factory vereinfacht die Erzeugung von
+ * Messages mit identischen Attributen.
  * @author Roland Gisler
- * @version $Revision: 214 $
  */
 public class MessageFactory {
 
    private static final MessageType DEFAULT_TYPE = MessageType.RAW;
+
    private static final String DEFAULT_GROUP = "bpms";
+
    private static final String DEFAULT_PROJECT = "bpms";
-   
+
    private MessageType type = DEFAULT_TYPE;
+
    private String group = DEFAULT_GROUP;
+
    private String project = DEFAULT_PROJECT;
 
-   
    /**
     * Konstruktor.
-    * @param type Default Type der Messages.
-    * @param group Default Gruppenname der Messages.
-    * @param project Default Projektname der Messages. 
+    * @param type
+    *           Default Type der Messages.
+    * @param group
+    *           Default Gruppenname der Messages.
+    * @param project
+    *           Default Projektname der Messages.
     */
    public MessageFactory(MessageType type, String group, String project) {
       this.type = type;
@@ -49,25 +51,27 @@ public class MessageFactory {
 
    /**
     * Konstruktor.
-    * @param type Default Type der Messages.
-    * @param group Default Gruppenname der Messages.
+    * @param type
+    *           Default Type der Messages.
+    * @param group
+    *           Default Gruppenname der Messages.
     */
    public MessageFactory(MessageType type, String group) {
-      this(type,group,DEFAULT_PROJECT);
+      this(type, group, DEFAULT_PROJECT);
    }
 
    /**
     * Konstruktor.
-    * @param type Default Type der Messages.
+    * @param type
+    *           Default Type der Messages.
     */
    public MessageFactory(MessageType type) {
-      this(type,DEFAULT_GROUP,DEFAULT_PROJECT);
+      this(type, DEFAULT_GROUP, DEFAULT_PROJECT);
    }
-      
+
    /**
-    * Erzeugt eine neue Message.
-    * Die Attribute Type, Group und Project werden mit den gesetzten
-    * Defaults belegt.
+    * Erzeugt eine neue Message. Die Attribute Type, Group und Project werden
+    * mit den gesetzten Defaults belegt.
     * @return Message
     */
    public Message createMessage() {
@@ -80,7 +84,8 @@ public class MessageFactory {
 
    /**
     * Setzt den Gruppennamen.
-    * @param group String Gruppenname.
+    * @param group
+    *           String Gruppenname.
     */
    public void setGroup(String group) {
       this.group = group;
@@ -88,7 +93,8 @@ public class MessageFactory {
 
    /**
     * Setzt den Projektnamen.
-    * @param project String Projektname
+    * @param project
+    *           String Projektname
     */
    public void setProject(String project) {
       this.project = project;
@@ -96,7 +102,8 @@ public class MessageFactory {
 
    /**
     * Setzt den Message Type.
-    * @param type MessageType.
+    * @param type
+    *           MessageType.
     */
    public void setType(MessageType type) {
       this.type = type;
