@@ -15,8 +15,6 @@
  */
 package ch.gitik.bpms.ant;
 
-import org.apache.tools.ant.BuildException;
-
 import ch.gitik.bpms.common.ConfigException;
 import ch.gitik.bpms.common.Message;
 import ch.gitik.bpms.xmpp.XMPPConfig;
@@ -24,17 +22,19 @@ import ch.gitik.bpms.xmpp.XMPPSender;
 import ch.gitik.bpms.xmpp.XMPPSenderFactory;
 
 /**
- * ANT-Task fuer BPMS (Build Process Messaging System). Dieser ANT-Task kann in
- * ein build.xml eingebunden werden und versendet dann Messages an interessierte
- * Benutzer ueber einen XMPP (Jabber) Server.
+ * ANT-Task fuer BPMS (Build Process Messaging System). Dieser ANT-Task kann in ein build.xml eingebunden werden und
+ * versendet dann Messages an interessierte Benutzer ueber einen XMPP (Jabber) Server.
  * @author Roland Gisler
  */
 public class BpmsXmppTask extends AbstractBpmsTask {
 
+   /** Standardport. */
+   private static final int XMPP_PORT = 5222;
+
    /** Servername. */
    private String server = null;
 
-   /** Serverport */
+   /** Serverport. */
    private int port = 0;
 
    /** Username. */
@@ -57,12 +57,8 @@ public class BpmsXmppTask extends AbstractBpmsTask {
 
    /**
     * Check the input and throw a BuildException when it is null.
-    * @throws BuildException
-    *            Buildfehler
-    * @throws IllegalArgumentException
-    *            Fehlendes Attribut
     */
-   public void checkAttributes() throws BuildException {
+   public final void checkAttributes() {
 
       // Server und User sind MUST-Attribute
       if (this.server == null) {
@@ -79,7 +75,7 @@ public class BpmsXmppTask extends AbstractBpmsTask {
 
       // Port ist optional, Default ist 5222
       if (this.port == 0) {
-         this.port = 5222;
+         this.port = XMPP_PORT;
       }
 
       // Passwort ist optional, Default ist ""
@@ -88,8 +84,7 @@ public class BpmsXmppTask extends AbstractBpmsTask {
       }
 
       // Konfig erzeugen, und erneut pruefen
-      this.config = new XMPPConfig(this.server, this.port, this.user, this.password, this.receiver,
-            this.conference);
+      this.config = new XMPPConfig(this.server, this.port, this.user, this.password, this.receiver, this.conference);
       try {
          this.config.validate();
       } catch (ConfigException e) {
@@ -133,10 +128,11 @@ public class BpmsXmppTask extends AbstractBpmsTask {
 
    /**
     * Setzt den Namen des Servers.
-    * @param string
+    * @param name
+    *           Servername.
     */
-   public final void setUser(final String string) {
-      user = string;
+   public final void setUser(final String name) {
+      user = name;
    }
 
    /**
@@ -183,19 +179,19 @@ public class BpmsXmppTask extends AbstractBpmsTask {
       this.conference = true;
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.ant.AbstractBpmsTask#sendMessage(ch.gitik.bpms.common.Message)
     */
    @Override
-   public void sendMessage(Message msg) {
+   public final void sendMessage(final Message msg) {
       this.xmpp.sendMessage(this.receiver, msg);
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.ant.AbstractBpmsTask#initialize()
     */
    @Override
-   public void initialize() {
+   public final void initialize() {
       this.xmpp = XMPPSenderFactory.getXMPPSender(config);
    }
 }
