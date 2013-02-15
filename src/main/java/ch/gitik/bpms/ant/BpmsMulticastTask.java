@@ -18,8 +18,6 @@ package ch.gitik.bpms.ant;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
-import org.apache.tools.ant.BuildException;
-
 import ch.gitik.bpms.common.ConfigException;
 import ch.gitik.bpms.common.Message;
 import ch.gitik.bpms.multicast.MulticastConfig;
@@ -48,12 +46,8 @@ public class BpmsMulticastTask extends AbstractBpmsTask {
 
    /**
     * Check the input and throw a BuildException when it is null.
-    * @throws BuildException
-    *            Buildfehler
-    * @throws IllegalArgumentException
-    *            Fehlendes Attribut
     */
-   public void checkAttributes() throws BuildException {
+   public final void checkAttributes() {
 
       // IP und Port sind MUST-Attribute
       if (this.multicastip == null) {
@@ -89,11 +83,11 @@ public class BpmsMulticastTask extends AbstractBpmsTask {
       multicastip = string;
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.ant.AbstractBpmsTask#sendMessage(ch.gitik.bpms.common.Message)
     */
    @Override
-   public void sendMessage(Message msg) {
+   public final void sendMessage(final Message msg) {
       try {
          this.multicast.send(msg);
       } catch (UnknownHostException e) {
@@ -103,11 +97,11 @@ public class BpmsMulticastTask extends AbstractBpmsTask {
       }
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.ant.AbstractBpmsTask#initialize()
     */
    @Override
-   public void initialize() {
+   public final void initialize() {
       try {
          this.multicast = MulticastSenderFactory.getSender(config);
       } catch (ConfigException e) {
@@ -119,7 +113,7 @@ public class BpmsMulticastTask extends AbstractBpmsTask {
     * Liefert den Port.
     * @return int Port.
     */
-   public int getPort() {
+   public final int getPort() {
       return port;
    }
 
@@ -128,7 +122,7 @@ public class BpmsMulticastTask extends AbstractBpmsTask {
     * @param port
     *           int.
     */
-   public void setPort(int port) {
+   public final void setPort(final int port) {
       this.port = port;
    }
 }
