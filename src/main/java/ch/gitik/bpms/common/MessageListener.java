@@ -20,5 +20,11 @@ package ch.gitik.bpms.common;
  * @author Roland Gisler
  */
 public interface MessageListener {
-   public void messageReceived(Message msg);
+
+   /**
+    * Behandelt eine Message.
+    * @param msg
+    *           Message.
+    */
+   void messageReceived(Message msg);
 }

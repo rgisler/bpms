@@ -66,7 +66,7 @@ public class Message implements Serializable {
     * Liefert den Messagetext zurueck.
     * @return String
     */
-   public String getText() {
+   public final String getText() {
       return this.text;
    }
 
@@ -75,7 +75,7 @@ public class Message implements Serializable {
     * @param text
     *           String
     */
-   public void setText(String text) {
+   public final void setText(final String text) {
       this.text = text;
    }
 
@@ -83,7 +83,7 @@ public class Message implements Serializable {
     * Liefert den Projektnamen zurueck.
     * @return String
     */
-   public String getProject() {
+   public final String getProject() {
       return project;
    }
 
@@ -92,7 +92,7 @@ public class Message implements Serializable {
     * @param project
     *           String
     */
-   public void setProject(String project) {
+   public final void setProject(final String project) {
       this.project = project;
    }
 
@@ -100,7 +100,7 @@ public class Message implements Serializable {
     * Liefert den Timestamp zurueck.
     * @return long
     */
-   public long getTimestamp() {
+   public final long getTimestamp() {
       return timestamp;
    }
 
@@ -108,7 +108,7 @@ public class Message implements Serializable {
     * Liefert den Task zurueck.
     * @return String
     */
-   public String getTask() {
+   public final String getTask() {
       return task;
    }
 
@@ -117,14 +117,14 @@ public class Message implements Serializable {
     * @param task
     *           String
     */
-   public void setTask(String task) {
+   public final void setTask(final String task) {
       this.task = task;
    }
 
-   /**
+   /*
     * @see java.lang.Object#toString()
     */
-   public String toString() {
+   public final String toString() {
       StringBuilder buffer = new StringBuilder();
       buffer.append(sdf.format(new Date(this.timestamp)));
       buffer.append(SEPARATOR + this.type.toString());
@@ -144,7 +144,7 @@ public class Message implements Serializable {
     * Liefert den Hostnamen zurueck.
     * @return String
     */
-   public String getHost() {
+   public final String getHost() {
       return host;
    }
 
@@ -152,7 +152,7 @@ public class Message implements Serializable {
     * Liefert die Gruppe zurueck.
     * @return String
     */
-   public String getGroup() {
+   public final String getGroup() {
       return group;
    }
 
@@ -161,7 +161,7 @@ public class Message implements Serializable {
     * @param group
     *           String
     */
-   public void setGroup(String group) {
+   public final void setGroup(final String group) {
       this.group = group;
    }
 
@@ -169,7 +169,7 @@ public class Message implements Serializable {
     * Liefert die URL zurueck.
     * @return String
     */
-   public String getUrl() {
+   public final String getUrl() {
       return url;
    }
 
@@ -178,7 +178,7 @@ public class Message implements Serializable {
     * @param url
     *           String
     */
-   public void setUrl(String url) {
+   public final void setUrl(final String url) {
       this.url = url;
    }
 
@@ -186,7 +186,7 @@ public class Message implements Serializable {
     * Liefert den Messagetype zurueck.
     * @return MessageType
     */
-   public MessageType getType() {
+   public final MessageType getType() {
       return type;
    }
 
@@ -195,7 +195,7 @@ public class Message implements Serializable {
     * @param type
     *           MessageType
     */
-   public void setType(MessageType type) {
+   public final void setType(final MessageType type) {
       this.type = type;
    }
 
@@ -203,7 +203,7 @@ public class Message implements Serializable {
     * Testet auf ANT-Message.
     * @return boolean
     */
-   public boolean isAnt() {
+   public final boolean isAnt() {
       return (this.type == MessageType.ANT);
    }
 
@@ -211,7 +211,7 @@ public class Message implements Serializable {
     * Testet auf CruiseControl-Message.
     * @return boolean
     */
-   public boolean isCruiseControl() {
+   public final boolean isCruiseControl() {
       return (this.type == MessageType.CC);
    }
 
@@ -219,7 +219,7 @@ public class Message implements Serializable {
     * Testet auf Log4J-Message.
     * @return boolean
     */
-   public boolean isLog4j() {
+   public final boolean isLog4j() {
       return (this.type == MessageType.LOG4J);
    }
 
@@ -227,7 +227,7 @@ public class Message implements Serializable {
     * Testet auf RAW-Message.
     * @return boolean
     */
-   public boolean isRaw() {
+   public final boolean isRaw() {
       return (this.type == MessageType.RAW);
    }
 }

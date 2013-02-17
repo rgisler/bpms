@@ -43,7 +43,7 @@ public class MessageFactory {
     * @param project
     *           Default Projektname der Messages.
     */
-   public MessageFactory(MessageType type, String group, String project) {
+   public MessageFactory(final MessageType type, final String group, final String project) {
       this.type = type;
       this.group = group;
       this.project = project;
@@ -56,7 +56,7 @@ public class MessageFactory {
     * @param group
     *           Default Gruppenname der Messages.
     */
-   public MessageFactory(MessageType type, String group) {
+   public MessageFactory(final MessageType type, final String group) {
       this(type, group, DEFAULT_PROJECT);
    }
 
@@ -65,7 +65,7 @@ public class MessageFactory {
     * @param type
     *           Default Type der Messages.
     */
-   public MessageFactory(MessageType type) {
+   public MessageFactory(final MessageType type) {
       this(type, DEFAULT_GROUP, DEFAULT_PROJECT);
    }
 
@@ -74,7 +74,7 @@ public class MessageFactory {
     * mit den gesetzten Defaults belegt.
     * @return Message
     */
-   public Message createMessage() {
+   public final Message createMessage() {
       Message msg = new Message();
       msg.setType(this.type);
       msg.setGroup(this.group);
@@ -87,7 +87,7 @@ public class MessageFactory {
     * @param group
     *           String Gruppenname.
     */
-   public void setGroup(String group) {
+   public final void setGroup(final String group) {
       this.group = group;
    }
 
@@ -96,7 +96,7 @@ public class MessageFactory {
     * @param project
     *           String Projektname
     */
-   public void setProject(String project) {
+   public final void setProject(final String project) {
       this.project = project;
    }
 
@@ -105,7 +105,7 @@ public class MessageFactory {
     * @param type
     *           MessageType.
     */
-   public void setType(MessageType type) {
+   public final void setType(final MessageType type) {
       this.type = type;
    }
 }

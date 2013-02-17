@@ -27,31 +27,31 @@ public interface MessageHandler {
     * Liefert zurueck, ob der Handler aktiv ist.
     * @return boolean Aktiv.
     */
-   public boolean isActive();
+   boolean isActive();
 
    /**
     * Aktiviert den Handler und den Transport.
     * @throws ConfigException
     *            Exception bei ungueltiger Konfiguration.
     */
-   public void activate() throws ConfigException;
+   void activate() throws ConfigException;
 
    /**
     * Deaktiviert den MessageHandler.
     */
-   public void deactivate();
+   void deactivate();
 
    /**
     * Registriert einen MessageListener.
     * @param listener
     *           MessageListener.
     */
-   public void addMessageListener(MessageListener listener);
+   void addMessageListener(MessageListener listener);
 
    /**
     * Deregistriert einen MessageListener.
     * @param listener
     *           MessageListener.
     */
-   public void removeMessageListener(MessageListener listener);
+   void removeMessageListener(MessageListener listener);
 }

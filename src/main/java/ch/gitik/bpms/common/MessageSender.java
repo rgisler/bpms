@@ -27,6 +27,5 @@ public interface MessageSender {
     * @param message
     *           Message.
     */
-   public abstract void sendMessage(String receiver, String message);
-
+   void sendMessage(String receiver, String message);
 }
