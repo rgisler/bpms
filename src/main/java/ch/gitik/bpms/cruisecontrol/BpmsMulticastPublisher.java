@@ -40,11 +40,11 @@ public class BpmsMulticastPublisher extends AbstractBpmsPublisher {
 
    private MulticastSender multicast = null;
 
-   public void setMulticastip(String host) {
+   public void setMulticastip(final String host) {
       this.multicastip = host;
    }
 
-   public void setPort(int port) {
+   public void setPort(final int port) {
       this.port = port;
    }
 
@@ -61,10 +61,10 @@ public class BpmsMulticastPublisher extends AbstractBpmsPublisher {
       ValidationHelper.assertIsSet(multicastip, "multicastip", this.getClass());
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.cruisecontrol.AbstractBpmsPublisher#sendMessage(ch.gitik.bpms.common.Message)
     */
-   protected void sendMessage(Message msg) {
+   protected void sendMessage(final Message msg) {
       MulticastConfig config = new MulticastConfig(this.multicastip, this.port);
       try {
          this.multicast = MulticastSenderFactory.getSender(config);

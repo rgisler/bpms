@@ -29,34 +29,40 @@ import ch.gitik.bpms.common.MessageFactory;
 import ch.gitik.bpms.common.MessageType;
 
 /**
- * 
  * @author Roland Gisler
  */
 public abstract class AbstractBpmsPublisher implements Publisher {
 
    private String url;
+
    private MessageFactory messageFactory = new MessageFactory(MessageType.CC);
 
-   public void setGroup(String group) {
+   /**
+    * Setzt die Gruppe.
+    * @param group
+    *           Gruppe.
+    */
+   public final void setGroup(final String group) {
       this.messageFactory.setGroup(group);
    }
 
    /**
     * Publish the results to the Jabber transport via an instant message.
-    * 
     * @param cruisecontrolLog
+    *           Logobjekt von CruiseControl.
     * @throws CruiseControlException
+    *            CruiseControl Exception.
     */
-   public void publish(Element cruisecontrolLog) throws CruiseControlException {
+   public final void publish(final Element cruisecontrolLog) throws CruiseControlException {
 
       // Generate the message to be sent to the recipient
       XMLLogHelper logHelper = new XMLLogHelper(cruisecontrolLog);
       String logFileName = logHelper.getLogFileName();
-      String baseLogFileName = logFileName.substring(logFileName.lastIndexOf(File.separator) + 1, logFileName
-            .lastIndexOf("."));
+      String baseLogFileName = logFileName.substring(logFileName.lastIndexOf(File.separator) + 1,
+            logFileName.lastIndexOf("."));
 
       String state = (logHelper.isBuildSuccessful() ? "SUCCESSFUL" : "FAILED");
-      
+
       StringBuffer localUrl = new StringBuffer();
       localUrl.append(url);
       if (url.indexOf("?") == -1) {
@@ -66,7 +72,7 @@ public abstract class AbstractBpmsPublisher implements Publisher {
       }
       localUrl.append("log=");
       localUrl.append(baseLogFileName);
-            
+
       Message msg = this.messageFactory.createMessage();
       msg.setProject(logHelper.getProjectName());
       msg.setTask("finished");
@@ -77,12 +83,18 @@ public abstract class AbstractBpmsPublisher implements Publisher {
    }
 
    /**
-    * 
+    * Sendet eine Message.
     * @param msg
+    *           Message.
     */
    protected abstract void sendMessage(Message msg);
 
-   public void setURL(String url) {
+   /**
+    * Setzt die URL.
+    * @param url
+    *           URL.
+    */
+   public final void setURL(final String url) {
       this.url = url;
    }
 
@@ -90,7 +102,6 @@ public abstract class AbstractBpmsPublisher implements Publisher {
     * Validate that all the mandatory parameters were specified in order to
     * properly initial the Jabber client service. Note that this is called after
     * the configuration file is read.
-    * 
     * @throws CruiseControlException
     *            if there was a configuration error.
     */
