@@ -16,51 +16,48 @@
 package ch.gitik.bpms.multicast;
 
 import java.io.IOException;
-import java.net.UnknownHostException;
 
 import ch.gitik.bpms.common.ConfigException;
 import ch.gitik.bpms.common.Message;
 
-public class ConsoleSender {
+/**
+ * ConsolenSender.
+ */
+public final class ConsoleSender {
 
    private static final String IP = "224.168.0.10";
+
    private static final int PORT = 4000;
 
    private MulticastSender sender = null;
 
    /**
-    * Creates an multicast client
-    * 
+    * Creates an multicast client.
     * @throws IOException
-    *            If an I/O exception occurs while creating the MulticastSocket
-    * @throws UnkownHostException
-    *            If IP address is of illegal length
+    *            If an I/O exception occurs while creating the MulticastSocket.
     */
-   public ConsoleSender() throws IOException, UnknownHostException {
+   public ConsoleSender() throws IOException {
       this(IP, PORT);
    }
 
    /**
     * Creates an multicast client.
-    * 
     * @param ip
-    *           Multicast address
+    *           Multicast address.
     * @param port
-    *           Port number
+    *           Port number.
     * @throws IOException
-    *            If an I/O exception occurs while creating the MulticastSocket
-    * @throws UnkownHostException
-    *            If IP address is of illegal length
+    *            If an I/O exception occurs while creating the MulticastSocket.
     */
-   public ConsoleSender(String ip, int port) throws IOException, UnknownHostException {
+   public ConsoleSender(final String ip, final int port) throws IOException {
       Message message = new Message();
       message.setGroup("Group");
       message.setProject("bpms_multicast");
       message.setTask("test");
       message.setText("Das ist ein Test");
-      
-      MulticastConfig config = new MulticastConfig(ip,port);
-      
+
+      MulticastConfig config = new MulticastConfig(ip, port);
+
       try {
          sender = MulticastSenderFactory.getSender(config);
          sender.send(message);
@@ -71,13 +68,14 @@ public class ConsoleSender {
    }
 
    /**
-    * Run a simple multicast client to recive text messages Start: java
-    * MulticastClient MulticastAddress PortNumber
-    * 
+    * Run a simple multicast client to recive text messages Start: java.
+    * MulticastClient MulticastAddress PortNumber.
+    * @param argv
+    *           Argumente.
     * @throws IOException
-    * @throws UnknownHostException
+    *            IO-Exception.
     */
-   public static void main(String argv[]) throws UnknownHostException, IOException {
+   public static void main(final String[] argv) throws IOException {
       String groupIP = IP;
       int port = PORT;
       if (argv.length >= 2) {

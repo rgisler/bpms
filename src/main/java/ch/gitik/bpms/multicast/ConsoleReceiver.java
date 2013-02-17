@@ -16,7 +16,6 @@
 package ch.gitik.bpms.multicast;
 
 import java.io.IOException;
-import java.net.UnknownHostException;
 
 import ch.gitik.bpms.common.ConfigException;
 import ch.gitik.bpms.common.Message;
@@ -37,26 +36,22 @@ public class ConsoleReceiver implements MessageListener {
    /**
     * Konstruktor.
     * @throws IOException
-    *            If an I/O exception occurs while creating the MulticastSocket
-    * @throws UnkownHostException
-    *            If IP address is of illegal length
+    *            If an I/O exception occurs while creating the MulticastSocket.
     */
-   public ConsoleReceiver() throws IOException, UnknownHostException {
+   public ConsoleReceiver() throws IOException {
       this(IP, PORT);
    }
 
    /**
     * Konstruktor.
     * @param ip
-    *           Multicast address
+    *           Multicast address.
     * @param port
-    *           Port number
+    *           Port number.
     * @throws IOException
-    *            If an I/O exception occurs while creating the MulticastSocket
-    * @throws UnkownHostException
-    *            If IP address is of illegal length
+    *            If an I/O exception occurs while creating the MulticastSocket.
     */
-   public ConsoleReceiver(String ip, int port) throws IOException, UnknownHostException {
+   public ConsoleReceiver(final String ip, final int port) throws IOException {
 
       System.out.println("GroupIP: " + ip + ":" + port);
       System.out.println("Starting ConsoleReceiver...");
@@ -80,11 +75,13 @@ public class ConsoleReceiver implements MessageListener {
 
    /**
     * Run a simple multicast client to recive text messages Start: java
-    * [MulticastAddress PortNumber]
+    * [MulticastAddress PortNumber].
+    * @param argv
+    *           Argumente.
     * @throws IOException
-    * @throws UnknownHostException
+    *            IO-Problem.
     */
-   public static void main(String argv[]) throws UnknownHostException, IOException {
+   public static void main(final String[] argv) throws IOException {
       String groupIP = IP;
       int port = PORT;
       if (argv.length >= 2) {
@@ -94,10 +91,12 @@ public class ConsoleReceiver implements MessageListener {
       new ConsoleReceiver(groupIP, port);
    }
 
-   /**
-    * @see ch.gitik.bpms.common.MessageListener#messageReceived(ch.gitik.bpms.common.Message)
+   /*
+    * @see
+    * ch.gitik.bpms.common.MessageListener#messageReceived(ch.gitik.bpms.common
+    * .Message)
     */
-   public void messageReceived(Message msg) {
+   public final void messageReceived(final Message msg) {
       System.out.println(msg.toString());
 
    }
