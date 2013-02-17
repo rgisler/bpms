@@ -19,13 +19,19 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.StreamException;
 
 /**
- * Konvertiert Messages in XML und zurueck.
- * Verwendet XStream um ein Message-Objekt in XML zu transformieren und zurueck.
+ * Konvertiert Messages in XML und zurueck. Verwendet XStream um ein
+ * Message-Objekt in XML zu transformieren und zurueck.
  * @author Roland Gisler
  */
-public class XMLConverter {
+public final class XMLConverter {
 
    private static XStream xstream;
+
+   /**
+    * Privater Konstruktor.
+    */
+   private XMLConverter() {
+   }
 
    /**
     * Factory fuer XStream Singleton.
@@ -40,11 +46,12 @@ public class XMLConverter {
    }
 
    /**
-    * Liefert ein Message Objekt vom uebergebenen XML zurueck. 
-    * @param xml XML-Repraesentation.
+    * Liefert ein Message Objekt vom uebergebenen XML zurueck.
+    * @param xml
+    *           XML-Repraesentation.
     * @return Message Objekt.
     */
-   public static Message getMessage(String xml) {
+   public static Message getMessage(final String xml) {
       Message msg = new Message();
       msg.setType(MessageType.RAW);
       if (xml != null) {
@@ -66,10 +73,11 @@ public class XMLConverter {
 
    /**
     * Liefert das XML eines Message Objektes zurueck.
-    * @param msg Message Objekt.
+    * @param msg
+    *           Message Objekt.
     * @return String XML Repraesentation.
     */
-   public static String getXML(Message msg) {
+   public static String getXML(final Message msg) {
       return getXStream().toXML(msg);
    }
 }

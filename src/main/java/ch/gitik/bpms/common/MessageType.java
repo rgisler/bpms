@@ -20,6 +20,7 @@ package ch.gitik.bpms.common;
  * @author Roland Gisler
  */
 public enum MessageType {
+
    LOG4J, CC, ANT, RAW;
 
    /**
@@ -28,8 +29,8 @@ public enum MessageType {
     *           MessageType
     * @return String Beschreibung.
     */
-   public String getFullType(MessageType type) {
-      String result = "unknown message type";
+   public String getFullType(final MessageType type) {
+      String result;
       switch (type) {
       case LOG4J:
          result = "Appache Logging Log4J";
@@ -42,6 +43,9 @@ public enum MessageType {
          break;
       case RAW:
          result = "Raw message";
+         break;
+      default:
+         result = "unkown message Type";
          break;
       }
       return result;

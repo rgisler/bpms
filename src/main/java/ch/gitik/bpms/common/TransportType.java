@@ -20,6 +20,7 @@ package ch.gitik.bpms.common;
  * @author Roland Gisler
  */
 public enum TransportType {
+
    MULTICAST, XMPP, XMLRPC;
 
    /**
@@ -28,8 +29,8 @@ public enum TransportType {
     *           TransportType.
     * @return String Beschreibung.
     */
-   public String getFullType(TransportType type) {
-      String result = "unknown message type";
+   public String getFullType(final TransportType type) {
+      String result;
       switch (type) {
       case MULTICAST:
          result = "IP Multicast";
@@ -39,6 +40,9 @@ public enum TransportType {
          break;
       case XMLRPC:
          result = "XML-RPC";
+         break;
+      default:
+         result = "unknown message type";
          break;
       }
       return result;
