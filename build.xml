@@ -41,7 +41,6 @@
    <property name="src" location="${basedir}/src" />
    <property name="src.main" location="${src}/main/java" />
    <property name="src.test" location="${src}/test/java" />
-   <property name="src.idl" location="${src}/main/idl" />
 
    <!-- setting target locations -->
    <property name="target" location="${basedir}/build" />
@@ -248,8 +247,6 @@
    <!-- ================================================================== -->
    <target name="pmd" depends="init" description="pmd report">
       <path id="libset.pmd">
-         <pathelement path="${classes}" />
-         <pathelement path="${libdev}/pmd/cfg" />
          <fileset dir="${libdev}/pmd">
             <include name="*.jar" />
          </fileset>
