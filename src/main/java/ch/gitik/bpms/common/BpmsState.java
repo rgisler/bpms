@@ -28,8 +28,8 @@ public enum BpmsState {
     *           BpmsState.
     * @return String Beschreibung.
     */
-   public String getFullType(BpmsState state) {
-      String result = "unknown state";
+   public String getFullType(final BpmsState state) {
+      String result;
       switch (state) {
       case INIT:
          result = "BPMS wird initialisiert.";
@@ -51,6 +51,9 @@ public enum BpmsState {
          break;
       case RESUMING:
          result = "BPMS in Wiederherstellung.";
+         break;
+      default:
+         result = "BPMS undefiniert";
          break;
       }
       return result;

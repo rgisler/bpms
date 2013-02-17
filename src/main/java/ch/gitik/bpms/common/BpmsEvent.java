@@ -23,6 +23,7 @@ import java.util.EventObject;
  */
 public class BpmsEvent extends EventObject {
 
+   /** Initialer State. */
    private BpmsState state = BpmsState.INIT;
 
    /**

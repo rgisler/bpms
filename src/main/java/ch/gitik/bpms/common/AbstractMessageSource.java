@@ -19,11 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Basisklasse fuer eine Message-Quelle. Registriert und verwaltet MessageListener.
+ * Basisklasse fuer eine Message-Quelle. Registriert und verwaltet
+ * MessageListener.
  * @author Roland Gisler
  */
 public abstract class AbstractMessageSource {
 
+   /** MessageListeners. */
    private List<MessageListener> listerners = new ArrayList<MessageListener>();
 
    /**
