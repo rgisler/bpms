@@ -27,7 +27,7 @@ import ch.gitik.bpms.multicast.MulticastSender;
 import ch.gitik.bpms.multicast.MulticastSenderFactory;
 
 /**
- *
+ * Multicast Publisher.
  * @author Roland Gisler
  */
 public class BpmsMulticastPublisher extends AbstractBpmsPublisher {
@@ -40,11 +40,21 @@ public class BpmsMulticastPublisher extends AbstractBpmsPublisher {
 
    private MulticastSender multicast = null;
 
-   public void setMulticastip(final String host) {
+   /**
+    * Setzt die Multicast IP.
+    * @param host
+    *           Host IP.
+    */
+   public final void setMulticastip(final String host) {
       this.multicastip = host;
    }
 
-   public void setPort(final int port) {
+   /**
+    * Setzt den Port.
+    * @param port
+    *           Port.
+    */
+   public final void setPort(final int port) {
       this.port = port;
    }
 
@@ -52,17 +62,18 @@ public class BpmsMulticastPublisher extends AbstractBpmsPublisher {
     * Validate that all the mandatory parameters were specified in order to
     * properly initial the Jabber client service. Note that this is called after
     * the configuration file is read.
-    *
     * @throws CruiseControlException
     *            if there was a configuration error.
     */
-   public void validate() throws CruiseControlException {
+   public final void validate() throws CruiseControlException {
       super.validate();
       ValidationHelper.assertIsSet(multicastip, "multicastip", this.getClass());
    }
 
    /*
-    * @see ch.gitik.bpms.cruisecontrol.AbstractBpmsPublisher#sendMessage(ch.gitik.bpms.common.Message)
+    * @see
+    * ch.gitik.bpms.cruisecontrol.AbstractBpmsPublisher#sendMessage(ch.gitik
+    * .bpms.common.Message)
     */
    protected void sendMessage(final Message msg) {
       MulticastConfig config = new MulticastConfig(this.multicastip, this.port);

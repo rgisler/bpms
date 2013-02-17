@@ -20,14 +20,20 @@ import org.apache.log4j.Logger;
 /**
  * @author Roland Gisler
  */
-public class ConsoleSender {
+public final class ConsoleSender {
 
    private static Logger LOG = Logger.getRootLogger();
 
    /**
+    * Privater Konstruktor.
+    */
+   private ConsoleSender() {
+   }
+
+   /**
     * @param args
     */
-   public static void main(String[] args) {
+   public static void main(final String[] args) {
       LOG.debug("Das ist eine Debug-Message");
       LOG.info("Das ist eine Info-Message");
       LOG.warn("Das ist eine Warn-Message");

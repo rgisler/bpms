@@ -23,14 +23,16 @@ import ch.gitik.bpms.common.MessageFactory;
 import ch.gitik.bpms.common.MessageType;
 
 /**
- * 
  * @author Roland Gisler
  */
 public abstract class AbstractBpmsAppender extends AppenderSkeleton {
 
    private static MessageFactory messageFactory = new MessageFactory(MessageType.LOG4J);
-   
-   protected void append(LoggingEvent arg0) {
+
+   /*
+    * @see org.apache.log4j.AppenderSkeleton#append(org.apache.log4j.spi.LoggingEvent)
+    */
+   protected void append(final LoggingEvent arg0) {
       Message msg = messageFactory.createMessage();
       msg.setProject(arg0.getLoggerName());
       msg.setTask(arg0.getLevel().toString());
@@ -38,10 +40,18 @@ public abstract class AbstractBpmsAppender extends AppenderSkeleton {
       this.sendMessage(msg);
    }
 
-   public boolean requiresLayout() {
+   /*
+    * @see org.apache.log4j.AppenderSkeleton#requiresLayout()
+    */
+   public final boolean requiresLayout() {
       return false;
    }
 
+   /**
+    * Sendet eine Message.
+    * @param msg
+    *           Message.
+    */
    public abstract void sendMessage(Message msg);
 
 }

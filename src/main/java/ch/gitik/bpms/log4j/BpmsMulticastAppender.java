@@ -25,19 +25,28 @@ import ch.gitik.bpms.multicast.MulticastSender;
 import ch.gitik.bpms.multicast.MulticastSenderFactory;
 
 /**
- * 
+ * MulticastAppender.
  * @author Roland Gisler
  */
 public class BpmsMulticastAppender extends AbstractBpmsAppender {
 
    private static MulticastSender sender;
-  
+
    private String multicastip;
+
    private int port;
-   
-   private static MulticastSender getSender(String ip, int port) {
+
+   /**
+    * Liefert den Sender.
+    * @param ip
+    *           IP-Adresse.
+    * @param port
+    *           Portnumer.
+    * @return MulticastSender.
+    */
+   private static MulticastSender getSender(final String ip, final int port) {
       if (sender == null) {
-         MulticastConfig config = new MulticastConfig(ip,port);
+         MulticastConfig config = new MulticastConfig(ip, port);
          try {
             sender = MulticastSenderFactory.getSender(config);
          } catch (ConfigException e) {
@@ -46,12 +55,14 @@ public class BpmsMulticastAppender extends AbstractBpmsAppender {
       }
       return sender;
    }
-   
-   
+
+   /**
+    * @see ch.gitik.bpms.log4j.AbstractBpmsAppender#sendMessage(ch.gitik.bpms.common.Message)
+    */
    @Override
-   public void sendMessage(Message msg) {
+   public final void sendMessage(final Message msg) {
       try {
-         getSender(this.multicastip,this.port).send(msg);
+         getSender(this.multicastip, this.port).send(msg);
       } catch (UnknownHostException e) {
          e.printStackTrace();
       } catch (IOException e) {
@@ -59,25 +70,45 @@ public class BpmsMulticastAppender extends AbstractBpmsAppender {
       }
    }
 
+   /*
+    * @see org.apache.log4j.AppenderSkeleton#close()
+    */
    @Override
-   public void close() {
+   public final void close() {
       sender = null;
    }
 
-   public String getMulticastip() {
+   /**
+    * Liefert die Multicast IP.
+    * @return Multicast IP.
+    */
+   public final String getMulticastip() {
       return multicastip;
    }
 
-   public void setMulticastip(String multicastip) {
+   /**
+    * Setzt die Mulitcast IP.
+    * @param multicastip
+    *           Multicast IP.
+    */
+   public final void setMulticastip(final String multicastip) {
       this.multicastip = multicastip;
    }
 
-   public int getPort() {
+   /**
+    * Liefert den Port.
+    * @return Portnummer.
+    */
+   public final int getPort() {
       return port;
    }
 
-   public void setPort(int port) {
+   /**
+    * Setzt den Port.
+    * @param port
+    *           Port.
+    */
+   public final void setPort(final int port) {
       this.port = port;
    }
-
 }

@@ -21,7 +21,7 @@ import ch.gitik.bpms.xmpp.XMPPSender;
 import ch.gitik.bpms.xmpp.XMPPSenderFactory;
 
 /**
- *
+ * XMPP Appender.
  * @author Roland Gisler
  */
 public class BpmsXmppAppender extends AbstractBpmsAppender {
@@ -38,27 +38,63 @@ public class BpmsXmppAppender extends AbstractBpmsAppender {
 
    private String receiver;
 
-   public String getReceiver() {
+   /**
+    * Liefert den Receiver.
+    * @return Receiver.
+    */
+   public final String getReceiver() {
       return receiver;
    }
 
-   public void setReceiver(String receiver) {
+   /**
+    * Setzt den Receiver.
+    * @param receiver
+    *           Receiver.
+    */
+   public final void setReceiver(final String receiver) {
       this.receiver = receiver;
    }
 
-   public String getUser() {
+   /**
+    * Liefert den Benutzer.
+    * @return Benutzername.
+    */
+   public final String getUser() {
       return user;
    }
 
-   public void setUser(String user) {
+   /**
+    * Setzt den Benutzer.
+    * @param user
+    *           Benutzername.
+    */
+   public final void setUser(final String user) {
       this.user = user;
    }
 
-   public void setPassword(String password) {
+   /**
+    * Setzt das Passwort.
+    * @param password
+    *           Passwort.
+    */
+   public final void setPassword(final String password) {
       this.password = password;
    }
 
-   private static XMPPSender getSender(String host, int port, String user, String password) {
+   /**
+    * Liefert den Sender.
+    * @param host
+    *           Hostname.
+    * @param port
+    *           Portnummer.
+    * @param user
+    *           Benutzer.
+    * @param password
+    *           Passwort.
+    * @return Sender.
+    */
+   private static XMPPSender getSender(final String host, final int port, final String user,
+         final String password) {
       if (sender == null) {
          XMPPConfig config = new XMPPConfig(host, port, user, password, null, false);
          sender = XMPPSenderFactory.getXMPPSender(config);
@@ -66,30 +102,55 @@ public class BpmsXmppAppender extends AbstractBpmsAppender {
       return sender;
    }
 
+   /*
+    * @see
+    * ch.gitik.bpms.log4j.AbstractBpmsAppender#sendMessage(ch.gitik.bpms.common
+    * .Message)
+    */
    @Override
-   public void sendMessage(Message msg) {
+   public void sendMessage(final Message msg) {
       getSender(this.host, this.port, this.user, this.password).sendMessage(this.receiver, msg);
    }
 
+   /*
+    * @see org.apache.log4j.AppenderSkeleton#close()
+    */
    @Override
    public void close() {
       sender = null;
    }
 
-   public String getHost() {
+   /**
+    * Liefert den Host.
+    * @return Hostname.
+    */
+   public final String getHost() {
       return host;
    }
 
-   public void setHost(String multicastip) {
+   /**
+    * Setzt den Host.
+    * @param multicastip
+    *           Multicast IP.
+    */
+   public final void setHost(final String multicastip) {
       this.host = multicastip;
    }
 
-   public int getPort() {
+   /**
+    * Liefert den Port.
+    * @return Portnummer.
+    */
+   public final int getPort() {
       return port;
    }
 
-   public void setPort(int port) {
+   /**
+    * Setzt den Port.
+    * @param port
+    *           Portnummer.
+    */
+   public final void setPort(final int port) {
       this.port = port;
    }
-
 }
