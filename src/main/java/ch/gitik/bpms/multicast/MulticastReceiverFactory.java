@@ -21,13 +21,28 @@ import java.util.Map;
 import ch.gitik.bpms.common.ConfigException;
 
 /**
+ * Factory für MulticastReceiver.
  * @author Roland Gisler
  */
-public class MulticastReceiverFactory {
+public final class MulticastReceiverFactory {
 
    private static Map<String, MulticastReceiver> recMap = new Hashtable<String, MulticastReceiver>();
 
-   public static MulticastReceiver getReceiver(MulticastConfig config) throws ConfigException {
+   /**
+    * Privater Konstruktor.
+    */
+   private MulticastReceiverFactory() {
+   }
+
+   /**
+    * Liefert ein MulticastReceiverobjekt.
+    * @param config
+    *           Konfiguration.
+    * @return MulticastReceiver.
+    * @throws ConfigException
+    *            KOnfigurationsfehler.
+    */
+   public static MulticastReceiver getReceiver(final MulticastConfig config) throws ConfigException {
       MulticastReceiver receiver = null;
 
       if (config.validate()) {

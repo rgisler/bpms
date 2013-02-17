@@ -29,7 +29,15 @@ public class MulticastSenderFactory {
 
    private static Map<String, MulticastSender> recMap = new Hashtable<String, MulticastSender>();
 
-   public static MulticastSender getSender(MulticastConfig config) throws ConfigException {
+   /**
+    * Liefert ein Senderobjekt.
+    * @param config
+    *           Konfiguration.
+    * @return Senderobjekt.
+    * @throws ConfigException
+    *            Konfigurationsfehler.
+    */
+   public static MulticastSender getSender(final MulticastConfig config) throws ConfigException {
       MulticastSender sender = null;
 
       if (config.validate()) {

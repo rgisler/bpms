@@ -19,11 +19,13 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
-import java.net.UnknownHostException;
 
 import ch.gitik.bpms.common.Message;
 import ch.gitik.bpms.common.XMLConverter;
 
+/**
+ * Multicastsender.
+ */
 public class MulticastSender {
 
    private MulticastConfig config;
@@ -33,21 +35,20 @@ public class MulticastSender {
    /**
     * Creates an simple multicast server.
     * @param config
+    *           Konfiguration.
     */
-   public MulticastSender(MulticastConfig config) {
+   public MulticastSender(final MulticastConfig config) {
       this.config = config;
    }
 
    /**
     * Send an String message to the multicast address.
     * @param s
-    *           String message to send
+    *           String message to send.
     * @throws IOException
-    *            If an error occures while setting ttl
-    * @throws UnknownHostException
-    *            If IP address is of illegal length
+    *            If an error occures while setting ttl.
     */
-   public void send(String s) throws IOException, UnknownHostException {
+   public final void send(final String s) throws IOException {
       byte[] buffer = s.getBytes();
       DatagramPacket datagram = new DatagramPacket(buffer, buffer.length, InetAddress.getByName(this.config
             .getIp()), this.config.getPort());
@@ -57,15 +58,13 @@ public class MulticastSender {
    }
 
    /**
-    * Send a Message to the multicast address
+    * Send a Message to the multicast address.
     * @param msg
-    *           Message to send
+    *           Message to send.
     * @throws IOException
-    *            If an error occures while setting ttl
-    * @throws UnknownHostException
-    *            If IP address is of illegal length
+    *            If an error occures while setting ttl.
     */
-   public void send(Message msg) throws IOException, UnknownHostException {
+   public final void send(final Message msg) throws IOException {
       this.send(XMLConverter.getXML(msg));
    }
 }
