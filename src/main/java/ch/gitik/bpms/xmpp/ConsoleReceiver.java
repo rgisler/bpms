@@ -23,6 +23,9 @@ import ch.gitik.bpms.common.Message;
 import ch.gitik.bpms.common.MessageHandler;
 import ch.gitik.bpms.common.MessageListener;
 
+/**
+ * Konsolen-Empfänger.
+ */
 public class ConsoleReceiver implements MessageListener {
 
    private static final String SERVER = "jabber.gitik.ch";
@@ -36,17 +39,29 @@ public class ConsoleReceiver implements MessageListener {
    private MessageHandler xmpp = null;
 
    /**
-    * Creates an xmpp client.
+    * Konstruktor.
+    * @throws IOException
+    *            IOException.
     */
-   public ConsoleReceiver() throws IOException, UnknownHostException {
+   public ConsoleReceiver() throws IOException {
       this(SERVER, PORT, USER, PWD);
    }
 
    /**
-    * Creates an xmpp client.
+    * Konstruktor.
+    * @param server
+    *           Servername.
+    * @param port
+    *           Portnummer.
+    * @param user
+    *           Benutzer.
+    * @param password
+    *           Passwort.
+    * @throws IOException
+    *            IOException.
     */
-   public ConsoleReceiver(String server, int port, String user, String password) throws IOException,
-         UnknownHostException {
+   public ConsoleReceiver(final String server, final int port, final String user, final String password)
+         throws IOException {
       System.out.println("Starting XMPP-ConsoleReceiver...");
 
       XMPPConfig config = new XMPPConfig(server, port, user, password, "bpmstest@conference.ubuntuserver",
@@ -70,10 +85,12 @@ public class ConsoleReceiver implements MessageListener {
    /**
     * Run a simple xmpp client. Receive text messages Start: java xmppClient
     * xmppAddress PortNumber
+    * @param argv
+    *           Argumente.
     * @throws IOException
-    * @throws UnknownHostException
+    *            IOException.
     */
-   public static void main(String argv[]) throws UnknownHostException, IOException {
+   public static void main(final String[] argv) throws IOException {
       String server = SERVER;
       int port = PORT;
       String user = USER;
@@ -90,7 +107,7 @@ public class ConsoleReceiver implements MessageListener {
    /**
     * @see ch.gitik.bpms.common.MessageListener#messageReceived(ch.gitik.bpms.common.Message)
     */
-   public void messageReceived(Message msg) {
+   public final void messageReceived(final Message msg) {
       System.out.println(msg);
    }
 }
