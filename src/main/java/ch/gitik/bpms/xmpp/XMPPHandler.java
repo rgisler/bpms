@@ -49,8 +49,10 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
 
    /**
     * Konstruktor.
+    * @param config
+    *           Konfiguration.
     */
-   public XMPPHandler(XMPPConfig config) {
+   public XMPPHandler(final XMPPConfig config) {
       super(config);
       this.receiver = config.getReceiver();
    }
@@ -58,7 +60,7 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
    /**
     * @see ch.gitik.bpms.common.MessageHandler#activate()
     */
-   public void activate() {
+   public final void activate() {
       try {
          this.openConnection();
          this.setReceiver(this.config.getReceiver());
@@ -79,7 +81,7 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
    /**
     * @see ch.gitik.bpms.common.MessageHandler#deactivate()
     */
-   public void deactivate() {
+   public final void deactivate() {
       if ((this.multiUserChat != null) && this.multiUserChat.isJoined()) {
          this.multiUserChat.removeMessageListener(this);
          this.multiUserChat.leave();
@@ -93,7 +95,7 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
    /**
     * @see org.jivesoftware.smack.PacketListener#processPacket(org.jivesoftware.smack.packet.Packet)
     */
-   public void processPacket(Packet arg0) {
+   public final void processPacket(final Packet arg0) {
       Message xmppMsg = (Message) arg0;
       ch.gitik.bpms.common.Message message = XMLConverter.getMessage(xmppMsg.getBody());
       this.fireMessageReceived(message);
@@ -102,14 +104,16 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
    /**
     * @see ch.gitik.bpms.common.MessageHandler#addMessageListener(ch.gitik.bpms.common.MessageListener)
     */
-   public void addMessageListener(MessageListener listener) {
+   public final void addMessageListener(final MessageListener listener) {
       this.listerners.add(listener);
    }
 
    /**
+    * Informiert alle Listener.
     * @param msg
+    *           Message.
     */
-   private void fireMessageReceived(ch.gitik.bpms.common.Message msg) {
+   private void fireMessageReceived(final ch.gitik.bpms.common.Message msg) {
       for (MessageListener listener : this.listerners) {
          listener.messageReceived(msg);
       }
@@ -118,7 +122,7 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
    /**
     * @see ch.gitik.bpms.common.MessageHandler#removeMessageListener(ch.gitik.bpms.common.MessageListener)
     */
-   public void removeMessageListener(MessageListener listener) {
+   public final void removeMessageListener(final MessageListener listener) {
       this.listerners.remove(listener);
    }
 
@@ -126,7 +130,7 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
     * Liefert den ConsoleReceiver.
     * @return String
     */
-   public String getReceiver() {
+   public final String getReceiver() {
       return receiver;
    }
 
@@ -134,14 +138,14 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
     * Setzt den ConsoleReceiver.
     * @param receiver
     */
-   public void setReceiver(String receiver) {
+   public final void setReceiver(final String receiver) {
       this.receiver = receiver;
    }
 
    /**
     * @see ch.gitik.bpms.common.MessageHandler#isActive()
     */
-   public boolean isActive() {
+   public final boolean isActive() {
       return this.active;
    }
 }

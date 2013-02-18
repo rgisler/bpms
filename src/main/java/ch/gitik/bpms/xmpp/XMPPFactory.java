@@ -23,9 +23,16 @@ import java.util.Map;
  * XMPP-Handler zurueck.
  * @author Roland Gisler
  */
-public class XMPPFactory {
+public final class XMPPFactory {
 
+   /** Map mit Handlern. */
    private static Map<String, XMPPHandler> xmppMap = new Hashtable<String, XMPPHandler>();
+
+   /**
+    * Privater Konstruktor.
+    */
+   private XMPPFactory() {
+   }
 
    /**
     * Factorymethode fuer XMPP-Handler.
@@ -33,7 +40,7 @@ public class XMPPFactory {
     *           XMPPConfig.
     * @return XMPPHandler.
     */
-   public static XMPPHandler getXMPPHandler(XMPPConfig config) {
+   public static XMPPHandler getXMPPHandler(final XMPPConfig config) {
       XMPPHandler xmpp = null;
       String key = config.getUser() + "@" + config.getServer() + ":" + config.getPort();
       if (xmppMap.containsKey(key)) {
