@@ -19,6 +19,7 @@ import ch.gitik.bpms.common.AbstractConfig;
 import ch.gitik.bpms.common.ConfigException;
 
 /**
+ * Konfiguration für XMPP.
  * @author Roland Gisler
  */
 public class XMPPConfig extends AbstractConfig {
@@ -48,14 +49,22 @@ public class XMPPConfig extends AbstractConfig {
    private boolean conference = IS_CONFERENCE;
 
    /**
+    * Konstruktor.
     * @param server
+    *           Servername.
     * @param port
+    *           Portnummer.
     * @param user
+    *           Benutzer.
     * @param password
+    *           Passwort.
     * @param receiver
+    *           Empfänger
     * @param conf
+    *           Flag für Konfig.
     */
-   public XMPPConfig(String server, int port, String user, String password, String receiver, boolean conf) {
+   public XMPPConfig(final String server, final int port, final String user, final String password,
+         final String receiver, final boolean conf) {
       this.server = server;
       this.port = port;
       this.user = user;
@@ -65,58 +74,70 @@ public class XMPPConfig extends AbstractConfig {
    }
 
    /**
+    * Liefert Passwort.
     * @return Passwort.
     */
-   public String getPassword() {
+   public final String getPassword() {
       return password;
    }
 
    /**
+    * Setzt das Passwort.
     * @param password
+    *           Passwort.
     */
-   public void setPassword(String password) {
+   public final void setPassword(final String password) {
       this.password = password;
    }
 
    /**
+    * Liefert den Port.
     * @return Port.
     */
-   public int getPort() {
+   public final int getPort() {
       return port;
    }
 
    /**
+    * Setzt den Port.
     * @param port
+    *           Portnummer.
     */
-   public void setPort(int port) {
+   public final void setPort(final int port) {
       this.port = port;
    }
 
    /**
-    * @return Server.
+    * Liefert den Server.
+    * @return Servername.
     */
-   public String getServer() {
+   public final String getServer() {
       return server;
    }
 
    /**
+    * Setzt den Server.
     * @param server
+    *           Servername.
     */
-   public void setServer(String server) {
+   public final void setServer(final String server) {
       this.server = server;
    }
 
    /**
+    * Liefert den Benutzer.
     * @return Username.
     */
-   public String getUser() {
+   public final String getUser() {
       return user;
    }
 
    /**
+    * Setzt den Benutzer.
     * @param user
+    *           Benutzername.
     */
-   public void setUser(String user) {
+   public final void setUser(final String user) {
       this.user = user;
    }
 
@@ -128,20 +149,37 @@ public class XMPPConfig extends AbstractConfig {
       return true;
    }
 
-   public String getReceiver() {
+   /**
+    * Liefert den Empfänger.
+    * @return Empfänger.
+    */
+   public final String getReceiver() {
       return receiver;
    }
 
-   public void setReceiver(String receiver) {
+   /**
+    * Setzt den Empfänger.
+    * @param receiver
+    *           Empfänger.
+    */
+   public final void setReceiver(final String receiver) {
       this.receiver = receiver;
    }
 
-   public boolean isConference() {
+   /**
+    * Liefert Konferenz.
+    * @return Konferenz.
+    */
+   public final boolean isConference() {
       return conference;
    }
 
-   public void setConference(boolean conference) {
+   /**
+    * Setz Konferenz-Modus.
+    * @param conference
+    *           Konferenzmodus.
+    */
+   public final void setConference(final boolean conference) {
       this.conference = conference;
    }
-
 }
