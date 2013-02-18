@@ -22,11 +22,24 @@ import java.util.Map;
  * Konkrete Factory fuer XMPP Sender.
  * @author Roland Gisler
  */
-public class XMPPSenderFactory {
+public final class XMPPSenderFactory {
 
+   /** Map mit Sendern. */
    private static Map<String, XMPPSender> xmppMap = new Hashtable<String, XMPPSender>();
 
-   public static XMPPSender getXMPPSender(XMPPConfig config) {
+   /**
+    * Privater Konstruktor.
+    */
+   private XMPPSenderFactory() {
+   }
+
+   /**
+    * Factory für XMPPSender.
+    * @param config
+    *           Konfiguration.
+    * @return XMPPSender.
+    */
+   public static XMPPSender getXMPPSender(final XMPPConfig config) {
       XMPPSender sender = null;
       String key = config.getUser() + "@" + config.getServer() + ":" + config.getPort();
       if (xmppMap.containsKey(key)) {

@@ -40,14 +40,14 @@ public class XMPPSender implements MessageListener {
 
    protected XMPPConfig config;
 
-   protected XMPPConnection connection = null;
+   protected XMPPConnection connection;
 
    /**
     * Konstruktor.
     * @param config
     *           Konfiguration.
     */
-   public XMPPSender(XMPPConfig config) {
+   public XMPPSender(final XMPPConfig config) {
       this.config = config;
    }
 
@@ -60,7 +60,7 @@ public class XMPPSender implements MessageListener {
     * @param message
     *           Message.
     */
-   public void sendMessage(String receiver, ch.gitik.bpms.common.Message message) {
+   public final void sendMessage(final String receiver, final ch.gitik.bpms.common.Message message) {
       this.sendMessage(receiver, XMLConverter.getXML(message));
    }
 
@@ -73,7 +73,7 @@ public class XMPPSender implements MessageListener {
     * @param message
     *           Message.
     */
-   public void sendMessage(String receiver, String message) {
+   public final void sendMessage(final String receiver, final String message) {
       XMPPConnection con = null;
       try {
          con = this.openConnection();
@@ -101,18 +101,19 @@ public class XMPPSender implements MessageListener {
       } catch (XMPPException e) {
          e.printStackTrace();
       } finally {
-         if (con != null)
+         if (con != null) {
             this.closeConnection();
+         }
       }
-
    }
 
    /**
     * Liefert eine Connection zum Jabber-Server.
     * @return Connection.
     * @throws XMPPException
+    *            XMPP-Fehler.
     */
-   protected XMPPConnection openConnection() throws XMPPException {
+   protected final XMPPConnection openConnection() throws XMPPException {
       if (this.connection == null) {
          this.connection = new XMPPConnection(new ConnectionConfiguration(this.config.getServer(),
                this.config.getPort()));
@@ -123,17 +124,22 @@ public class XMPPSender implements MessageListener {
    }
 
    /**
-    *
+    * Schliesst die XMPP-Verbindung.
     */
-   protected void closeConnection() {
+   protected final void closeConnection() {
       if (this.connection != null) {
          this.connection.disconnect();
       }
       this.connection = null;
    }
 
+   /*
+    * @see
+    * org.jivesoftware.smack.MessageListener#processMessage(org.jivesoftware
+    * .smack.Chat, org.jivesoftware.smack.packet.Message)
+    */
    @Override
-   public void processMessage(Chat arg0, Message arg1) {
+   public void processMessage(final Chat arg0, final Message arg1) {
       // Message ignorieren
    }
 }
