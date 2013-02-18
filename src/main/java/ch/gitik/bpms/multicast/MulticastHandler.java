@@ -40,14 +40,14 @@ public class MulticastHandler extends AbstractMessageSource implements MessageHa
     * @param config
     *           Konfiguration.
     */
-   public MulticastHandler(MulticastConfig config) {
+   public MulticastHandler(final MulticastConfig config) {
       this.config = config;
    }
 
    /**
     * @see ch.gitik.bpms.common.MessageHandler#activate()
     */
-   public void activate() {
+   public final void activate() {
       try {
          this.receiver = MulticastReceiverFactory.getReceiver(this.config);
          this.receiver.addMessageListener(this);
@@ -60,7 +60,7 @@ public class MulticastHandler extends AbstractMessageSource implements MessageHa
    /**
     * @see ch.gitik.bpms.common.MessageHandler#deactivate()
     */
-   public void deactivate() {
+   public final void deactivate() {
       this.receiver.deactivate();
       this.receiver.removeMessageListener(this);
    }
@@ -68,7 +68,7 @@ public class MulticastHandler extends AbstractMessageSource implements MessageHa
    /**
     * @see ch.gitik.bpms.common.MessageListener#messageReceived(ch.gitik.bpms.common.Message)
     */
-   public void messageReceived(Message msg) {
+   public final void messageReceived(final Message msg) {
       this.fireMessageReceived(msg);
    }
 
@@ -79,7 +79,7 @@ public class MulticastHandler extends AbstractMessageSource implements MessageHa
     * @throws ConfigException
     *            Konfigurationsfehler.
     */
-   public void send(Message msg) throws ConfigException {
+   public final void send(final Message msg) throws ConfigException {
       this.sender = MulticastSenderFactory.getSender(this.config);
       try {
          this.sender.send(msg);
@@ -93,7 +93,7 @@ public class MulticastHandler extends AbstractMessageSource implements MessageHa
    /**
     * @see ch.gitik.bpms.common.MessageHandler#isActive()
     */
-   public boolean isActive() {
+   public final boolean isActive() {
       return this.receiver.isActive();
    }
 }

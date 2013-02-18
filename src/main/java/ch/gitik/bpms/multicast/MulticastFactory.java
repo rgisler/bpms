@@ -23,11 +23,17 @@ import ch.gitik.bpms.common.ConfigException;
 /**
  * @author Roland Gisler
  */
-public class MulticastFactory {
+public final class MulticastFactory {
 
    private static Map<String, MulticastHandler> multicastMap = new Hashtable<String, MulticastHandler>();
 
-   public static MulticastHandler getMulticastHandler(MulticastConfig config) throws ConfigException {
+   /**
+    * Privater Konstruktor.
+    */
+   private MulticastFactory() {
+   }
+
+   public static MulticastHandler getMulticastHandler(final MulticastConfig config) throws ConfigException {
       MulticastHandler multicast = null;
 
       if (config.validate()) {

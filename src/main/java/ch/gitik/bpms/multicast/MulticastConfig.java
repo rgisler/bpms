@@ -31,37 +31,66 @@ public class MulticastConfig extends AbstractConfig {
 
    private int port = DEFAULT_PORT;
 
+   /**
+    * Konstruktor.
+    */
    public MulticastConfig() {
       this(DEFAULT_IP, DEFAULT_PORT);
    }
 
-   public MulticastConfig(String ip) {
+   /**
+    * Konstruktor.
+    * @param ip IP-Adresse.
+    */
+   public MulticastConfig(final String ip) {
       this(ip, DEFAULT_PORT);
    }
 
-   public MulticastConfig(String ip, int port) {
+   /**
+    * Konstruktor.
+    * @param ip IP-Adresse.
+    * @param port Portnummer.
+    */
+   public MulticastConfig(final String ip, final int port) {
       this.ip = ip;
-      this.port = port;
-   }
-
-   public String getIp() {
-      return ip;
-   }
-
-   public void setIp(String ip) {
-      this.ip = ip;
-   }
-
-   public int getPort() {
-      return port;
-   }
-
-   public void setPort(int port) {
       this.port = port;
    }
 
    /**
-    * @throws ConfigException
+    * Liefert die IP.
+    * @return IP-Adresse.
+    */
+   public final String getIp() {
+      return ip;
+   }
+
+   /**
+    * Setzt die IP.
+    * @param ip
+    *           IP-Adresse.
+    */
+   public final void setIp(final String ip) {
+      this.ip = ip;
+   }
+
+   /**
+    * Liefert den Port.
+    * @return Portnummer.
+    */
+   public final int getPort() {
+      return port;
+   }
+
+   /**
+    * Setzt den POrt.
+    * @param port
+    *           Portnummer.
+    */
+   public final void setPort(final int port) {
+      this.port = port;
+   }
+
+   /**
     * @see ch.gitik.bpms.common.AbstractConfig#validate()
     */
    @Override

@@ -33,13 +33,15 @@ import ch.gitik.bpms.common.XMLConverter;
  */
 public class MulticastReceiver implements MessageHandler, Runnable {
 
+   private static final int KB8 = 8192;
+
    private boolean active = false;
 
    private MulticastConfig config;
 
    private MulticastSocket socket;
 
-   private byte buffer[] = new byte[8192];
+   private byte[] buffer = new byte[KB8];
 
    private DatagramPacket datagram;
 
@@ -50,14 +52,14 @@ public class MulticastReceiver implements MessageHandler, Runnable {
     * @param config
     *           Konfiguration.
     */
-   public MulticastReceiver(MulticastConfig config) {
+   public MulticastReceiver(final MulticastConfig config) {
       this.config = config;
    }
 
    /**
     * @see ch.gitik.bpms.common.MessageHandler#activate()
     */
-   public void activate() {
+   public final void activate() {
       try {
          this.socket = new MulticastSocket(this.config.getPort());
          this.socket.joinGroup(InetAddress.getByName(this.config.getIp()));
@@ -74,7 +76,7 @@ public class MulticastReceiver implements MessageHandler, Runnable {
    /**
     * @see ch.gitik.bpms.common.MessageHandler#deactivate()
     */
-   public void deactivate() {
+   public final void deactivate() {
       this.active = false;
       try {
          this.socket.leaveGroup(InetAddress.getByName(this.config.getIp()));
@@ -89,7 +91,7 @@ public class MulticastReceiver implements MessageHandler, Runnable {
    /**
     * @see java.lang.Runnable#run()
     */
-   public void run() {
+   public final void run() {
       while (this.active) {
          try {
             this.socket.receive(datagram);
@@ -106,14 +108,14 @@ public class MulticastReceiver implements MessageHandler, Runnable {
    /**
     * @see ch.gitik.bpms.common.MessageHandler#addMessageListener(ch.gitik.bpms.common.MessageListener)
     */
-   public void addMessageListener(MessageListener listener) {
+   public final void addMessageListener(final MessageListener listener) {
       this.listerners.add(listener);
    }
 
    /**
     * @see ch.gitik.bpms.common.MessageHandler#removeMessageListener(ch.gitik.bpms.common.MessageListener)
     */
-   public void removeMessageListener(MessageListener listener) {
+   public final void removeMessageListener(final MessageListener listener) {
       this.listerners.remove(listener);
    }
 
@@ -121,7 +123,7 @@ public class MulticastReceiver implements MessageHandler, Runnable {
     * Informiert die Message Listener ueber eine Message.
     * @param msg
     */
-   private void fireMessageReceived(Message msg) {
+   private void fireMessageReceived(final Message msg) {
       for (MessageListener listener : this.listerners) {
          listener.messageReceived(msg);
       }
@@ -130,7 +132,7 @@ public class MulticastReceiver implements MessageHandler, Runnable {
    /**
     * @see ch.gitik.bpms.common.MessageHandler#isActive()
     */
-   public boolean isActive() {
+   public final boolean isActive() {
       return this.active;
    }
 

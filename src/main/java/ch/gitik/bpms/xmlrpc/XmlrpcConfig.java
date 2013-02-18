@@ -31,44 +31,75 @@ public class XmlrpcConfig extends AbstractConfig {
 
    private int port = DEFAULT_PORT;
 
+   /**
+    * Konstruktor.
+    */
    public XmlrpcConfig() {
       this(DEFAULT_HOST, DEFAULT_PORT);
    }
 
-   public XmlrpcConfig(String host) {
+   /**
+    * Konstruktor.
+    * @param host
+    *           Host.
+    */
+   public XmlrpcConfig(final String host) {
       this(host, DEFAULT_PORT);
    }
 
-   public XmlrpcConfig(String host, int port) {
+   /**
+    * Konstruktor.
+    * @param host
+    *           Host.
+    * @param port
+    *           Portnummer.
+    */
+   public XmlrpcConfig(final String host, final int port) {
       this.host = host;
       this.port = port;
    }
 
-   public int getPort() {
+   /**
+    * Liefert den Port.
+    * @return Portnummer.
+    */
+   public final int getPort() {
       return port;
    }
 
-   public void setPort(int port) {
+   /**
+    * Setzt den Port.
+    * @param port
+    *           Portnummer.
+    */
+   public final void setPort(final int port) {
       this.port = port;
    }
 
    /**
-    * @throws ConfigException
     * @see ch.gitik.bpms.common.AbstractConfig#validate()
     */
    @Override
-   public boolean validate() throws ConfigException {
+   public final boolean validate() throws ConfigException {
       if ((this.host == null) || (this.port < 1)) {
          throw new ConfigException();
       }
       return true;
    }
 
-   public String getHost() {
+   /**
+    * Liefert den Host.
+    * @return Hostname.
+    */
+   public final String getHost() {
       return host;
    }
 
-   public void setHost(String host) {
+   /**
+    * Setzt den Host.
+    * @param host Hostname.
+    */
+   public final void setHost(final String host) {
       this.host = host;
    }
 

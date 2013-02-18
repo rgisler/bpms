@@ -42,7 +42,7 @@ public class XmlRpcSender implements MessageSender {
     * @param config
     *           Konfiguration.
     */
-   public XmlRpcSender(XmlrpcConfig config) {
+   public XmlRpcSender(final XmlrpcConfig config) {
       this.config = config;
    }
 
@@ -55,7 +55,7 @@ public class XmlRpcSender implements MessageSender {
     * @param message
     *           Message.
     */
-   public void sendMessage(String receiver, ch.gitik.bpms.common.Message message) {
+   public final void sendMessage(final String receiver, final ch.gitik.bpms.common.Message message) {
       this.sendMessage(receiver, XMLConverter.getXML(message));
    }
 
@@ -63,7 +63,7 @@ public class XmlRpcSender implements MessageSender {
     * @see ch.gitik.bpms.common.MessageSender#sendMessage(java.lang.String,
     *      java.lang.String)
     */
-   public void sendMessage(String receiver, String message) {
+   public final void sendMessage(final String receiver, final String message) {
       ClientFactory factory = null;
       try {
          factory = this.openConnection();
@@ -74,8 +74,9 @@ public class XmlRpcSender implements MessageSender {
       } catch (MalformedURLException e) {
          e.printStackTrace();
       } finally {
-         if (factory != null)
+         if (factory != null) {
             this.closeConnection();
+         }
       }
    }
 
@@ -83,8 +84,9 @@ public class XmlRpcSender implements MessageSender {
     * Liefert eine Connection zum XML-RPC Server.
     * @return ClientFactory.
     * @throws MalformedURLException
+    *            Ungülte URL.
     */
-   protected ClientFactory openConnection() throws MalformedURLException {
+   protected final ClientFactory openConnection() throws MalformedURLException {
       if (this.factory == null) {
          XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
          config.setServerURL(new URL("http://" + this.config.getHost() + ":" + this.config.getPort()
@@ -100,7 +102,7 @@ public class XmlRpcSender implements MessageSender {
    /**
     *
     */
-   protected void closeConnection() {
+   protected final void closeConnection() {
       this.factory = null;
    }
 
