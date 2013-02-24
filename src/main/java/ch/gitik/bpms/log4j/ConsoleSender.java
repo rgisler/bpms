@@ -31,7 +31,9 @@ public final class ConsoleSender {
    }
 
    /**
+    * Main-Methode.
     * @param args
+    *           Argumente.
     */
    public static void main(final String[] args) {
       LOG.debug("Das ist eine Debug-Message");

@@ -92,7 +92,7 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
       this.active = false;
    }
 
-   /**
+   /*
     * @see org.jivesoftware.smack.PacketListener#processPacket(org.jivesoftware.smack.packet.Packet)
     */
    public final void processPacket(final Packet arg0) {
@@ -101,7 +101,7 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
       this.fireMessageReceived(message);
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.common.MessageHandler#addMessageListener(ch.gitik.bpms.common.MessageListener)
     */
    public final void addMessageListener(final MessageListener listener) {
@@ -119,7 +119,7 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
       }
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.common.MessageHandler#removeMessageListener(ch.gitik.bpms.common.MessageListener)
     */
    public final void removeMessageListener(final MessageListener listener) {
@@ -142,7 +142,7 @@ public class XMPPHandler extends XMPPSender implements MessageHandler, PacketLis
       this.receiver = receiver;
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.common.MessageHandler#isActive()
     */
    public final boolean isActive() {

@@ -25,6 +25,8 @@ import org.junit.Test;
  */
 public class XMPPSenderTest {
 
+   private static final int XMPP_DEFAULT_PORT = 5222;
+
    private XMPPConfig config = null;
 
    private XMPPSender sender = null;
@@ -42,7 +44,7 @@ public class XMPPSenderTest {
    @Ignore
    @Test
    public void testSendMessageAllUser() {
-      this.config = new XMPPConfig("jabber.gitik.ch", 5222, "bpmstest", "bpmstest", null, false);
+      this.config = new XMPPConfig("jabber.gitik.ch", XMPP_DEFAULT_PORT, "bpmstest", "bpmstest", null, false);
       this.sender = new XMPPSender(this.config);
       this.sender.sendMessage(null, "BPMS Test Message an alle angemeldeten Clienten!");
    }
@@ -50,7 +52,7 @@ public class XMPPSenderTest {
    @Ignore
    @Test
    public void testSendMessageDedicatedUser() {
-      this.config = new XMPPConfig("jabber.gitik.ch", 5222, "bpmstest", "bpmstest", null, false);
+      this.config = new XMPPConfig("jabber.gitik.ch", XMPP_DEFAULT_PORT, "bpmstest", "bpmstest", null, false);
       this.sender = new XMPPSender(this.config);
       this.sender.sendMessage("rog@ubuntuserver", "BPMS Test Message nur an MIMAS.");
    }
@@ -58,7 +60,7 @@ public class XMPPSenderTest {
    @Ignore
    @Test
    public void testSendMessageConference() {
-      this.config = new XMPPConfig("jabber.gitik.ch", 5222, "bpmstest", "bpmstest", null, true);
+      this.config = new XMPPConfig("jabber.gitik.ch", XMPP_DEFAULT_PORT, "bpmstest", "bpmstest", null, true);
       this.sender = new XMPPSender(this.config);
       this.sender.sendMessage("bpmstest@conference.ubuntuserver",
             "BPMS Test Message nur an bpmstest-Conferenc (Multiuser-Chat).");

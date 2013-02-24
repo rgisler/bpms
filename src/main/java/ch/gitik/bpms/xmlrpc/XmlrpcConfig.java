@@ -76,7 +76,7 @@ public class XmlrpcConfig extends AbstractConfig {
       this.port = port;
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.common.AbstractConfig#validate()
     */
    @Override

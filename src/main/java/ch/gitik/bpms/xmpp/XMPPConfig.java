@@ -141,7 +141,7 @@ public class XMPPConfig extends AbstractConfig {
       this.user = user;
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.common.AbstractConfig#validate()
     */
    @Override

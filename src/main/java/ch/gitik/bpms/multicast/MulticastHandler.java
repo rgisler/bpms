@@ -65,7 +65,7 @@ public class MulticastHandler extends AbstractMessageSource implements MessageHa
       this.receiver.removeMessageListener(this);
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.common.MessageListener#messageReceived(ch.gitik.bpms.common.Message)
     */
    public final void messageReceived(final Message msg) {
@@ -90,7 +90,7 @@ public class MulticastHandler extends AbstractMessageSource implements MessageHa
       }
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.common.MessageHandler#isActive()
     */
    public final boolean isActive() {

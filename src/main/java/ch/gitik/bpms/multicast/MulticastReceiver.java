@@ -105,21 +105,21 @@ public class MulticastReceiver implements MessageHandler, Runnable {
       }
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.common.MessageHandler#addMessageListener(ch.gitik.bpms.common.MessageListener)
     */
    public final void addMessageListener(final MessageListener listener) {
       this.listerners.add(listener);
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.common.MessageHandler#removeMessageListener(ch.gitik.bpms.common.MessageListener)
     */
    public final void removeMessageListener(final MessageListener listener) {
       this.listerners.remove(listener);
    }
 
-   /**
+   /*
     * Informiert die Message Listener ueber eine Message.
     * @param msg
     */
@@ -129,7 +129,7 @@ public class MulticastReceiver implements MessageHandler, Runnable {
       }
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.common.MessageHandler#isActive()
     */
    public final boolean isActive() {

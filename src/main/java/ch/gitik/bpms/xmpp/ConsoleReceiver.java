@@ -104,7 +104,7 @@ public class ConsoleReceiver implements MessageListener {
       new ConsoleReceiver(server, port, user, password);
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.common.MessageListener#messageReceived(ch.gitik.bpms.common.Message)
     */
    public final void messageReceived(final Message msg) {

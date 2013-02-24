@@ -59,22 +59,22 @@ public class XmlRpcSender implements MessageSender {
       this.sendMessage(receiver, XMLConverter.getXML(message));
    }
 
-   /**
+   /*
     * @see ch.gitik.bpms.common.MessageSender#sendMessage(java.lang.String,
     *      java.lang.String)
     */
    public final void sendMessage(final String receiver, final String message) {
-      ClientFactory factory = null;
+      ClientFactory clientFactory = null;
       try {
-         factory = this.openConnection();
-         if (factory != null) {
-            MessageSender sender = (MessageSender) factory.newInstance(MessageSender.class);
+         clientFactory = this.openConnection();
+         if (clientFactory != null) {
+            MessageSender sender = (MessageSender) clientFactory.newInstance(MessageSender.class);
             sender.sendMessage(receiver, message);
          }
       } catch (MalformedURLException e) {
          e.printStackTrace();
       } finally {
-         if (factory != null) {
+         if (clientFactory != null) {
             this.closeConnection();
          }
       }
@@ -88,12 +88,12 @@ public class XmlRpcSender implements MessageSender {
     */
    protected final ClientFactory openConnection() throws MalformedURLException {
       if (this.factory == null) {
-         XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
-         config.setServerURL(new URL("http://" + this.config.getHost() + ":" + this.config.getPort()
+         XmlRpcClientConfigImpl xmlClientConfig = new XmlRpcClientConfigImpl();
+         xmlClientConfig.setServerURL(new URL("http://" + this.config.getHost() + ":" + this.config.getPort()
                + "/xmlrpc"));
-         config.setEnabledForExtensions(true);
+         xmlClientConfig.setEnabledForExtensions(true);
          XmlRpcClient client = new XmlRpcClient();
-         client.setConfig(config);
+         client.setConfig(xmlClientConfig);
          this.factory = new ClientFactory(client);
       }
       return this.factory;

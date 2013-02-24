@@ -94,7 +94,7 @@ public abstract class AbstractBpmsPublisher implements Publisher {
     * @param url
     *           URL.
     */
-   public final void setURL(final String url) {
+   public final void setUrl(final String url) {
       this.url = url;
    }
 
